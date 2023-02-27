@@ -1,5 +1,5 @@
 /**
- * wordFx.js
+ * wordF2x.js
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
@@ -103,6 +103,7 @@
             }
             Object.assign(this.options, options);
             this.rect = this.DOM.el.getBoundingClientRect();
+            console.log(this.options.totalShapes)
             this.totalShapes = this.options.totalShapes;
             this.init();
             this.initEvents();
@@ -131,35 +132,38 @@
     class Word {
         constructor(el, options) {
             this.DOM = {};
-            this.DOM.el = el;
             this.options = {
                 shapesOnTop: false
             }
             Object.assign(this.options, options);
-            this.init();
-            this.initEvents();
+            this.init(el);
+            // this.initEvents();
         }
 
-        init() {
+        init(el) {
+            this.DOM.el = el;
+            Array.from(document.getElementsByClassName('shapes')).forEach(e => e.remove())
+
             this.createSVG();
-            charming(this.DOM.el);
             this.letters = [];
+            console.log(Array.from(this.DOM.el.querySelectorAll('span')).length)
             Array.from(this.DOM.el.querySelectorAll('span')).forEach(letter => this.letters.push(new Letter(letter, this.DOM.svg, this.options)));
         }
 
-        initEvents() {
-            window.addEventListener('resize', debounce(() => {
-                winsize = {width: window.innerWidth, height: window.innerHeight};
-                // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
-                // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
-                // this.DOM.svg.setAttribute('viewbox', `0 0 ${winsize.width} ${winsize.height}`);
-                this.DOM.svg.setAttribute('width', `100%`);
-                this.DOM.svg.setAttribute('height', `100%`);
-                this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
-            }, 20));
-        }
+        // initEvents() {
+        //     window.addEventListener('resize', debounce(() => {
+        //         winsize = {width: window.innerWidth, height: window.innerHeight};
+        //         // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
+        //         // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
+        //         // this.DOM.svg.setAttribute('viewbox', `0 0 ${winsize.width} ${winsize.height}`);
+        //         this.DOM.svg.setAttribute('width', `100%`);
+        //         this.DOM.svg.setAttribute('height', `100%`);
+        //         this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
+        //     }, 20));
+        // }
 
         createSVG() {
+            this.DOM.svg = null
             this.DOM.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             this.DOM.svg.setAttribute('class', 'shapes');
             this.DOM.svg.setAttribute('width', `100%`);
