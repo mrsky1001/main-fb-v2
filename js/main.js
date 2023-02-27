@@ -29,7 +29,7 @@ const effect = {
             duration: 3000,
             easing: 'easeOutExpo',
             translateY: t => {
-                const ty = anime.random(-500, 300);
+                const ty = anime.random(-300, 300);
                 t.dataset.ty = ty;
                 return [anime.random(-20, 10), ty];
             }, scale: t => {
@@ -82,7 +82,6 @@ class Site {
 
 
         if (!this.isAnimate) {
-            Array.from(document.getElementsByTagName('svg > *')).forEach(e => e.remove())
             this.DOM.bg.style.transform = 'none';
             this.isAnimate = true
             this.DOM.word = this.DOM.el.querySelector('.active .word');
