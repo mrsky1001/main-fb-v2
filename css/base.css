@@ -100,7 +100,7 @@ img {
 }
 
 svg:not(:root) {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 figure {
@@ -211,13 +211,13 @@ a:focus {
     outline: none;
 }
 
-.hidden {
-    position: absolute;
-    overflow: hidden;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-}
+/*.hidden {*/
+/*    position: absolute;*/
+/*    overflow: hidden;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    pointer-events: none;*/
+/*}*/
 
 /* Icons */
 .icon {
@@ -235,11 +235,15 @@ main {
 
 .content {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
     margin: 0 auto;
     min-height: 100vh;
+    perspective: 100px;
+    /*height: 100vh;*/
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .content--fixed {
@@ -309,14 +313,17 @@ main {
 }
 
 /* Slideshow */
-.slideshow {
-    position: absolute;
+.start-page {
+    /*position: absolute;*/
     top: 0;
     left: 0;
+    transform: translateZ(50px);
+
+
 }
 
 .slide {
-    position: absolute;
+    /*position: absolute;*/
     width: 100vw;
     height: 100vh;
     top: 0;
@@ -327,6 +334,9 @@ main {
     pointer-events: none;
     opacity: 0;
     z-index: 1;
+}
+
+.slide-header {
 }
 
 .slide.active {
@@ -404,64 +414,69 @@ main {
     white-space: pre;
 }
 
-.word--1 {
+.word {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 9vw;
+    font-size: 5vw;
 }
 
-.word--2 {
-    font-family: 'Arbutus Slab', serif;
-}
+/*.word--2 {*/
+/*    font-family: 'Arbutus Slab', serif;*/
+/*}*/
 
-.word--3 {
-    font-family: 'Questrial', sans-serif;
-}
+/*.word--3 {*/
+/*    font-family: 'Questrial', sans-serif;*/
+/*}*/
 
-.word--4 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-}
+/*.word--4 {*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    font-weight: 800;*/
+/*}*/
 
-.word--5 {
-    font-family: 'Bungee Outline', cursive;
-}
+/*.word--5 {*/
+/*    font-family: 'Bungee Outline', cursive;*/
+/*}*/
 
-.word--6 {
-    font-family: 'Hammersmith One', sans-serif;
-}
+/*.word--6 {*/
+/*    font-family: 'Hammersmith One', sans-serif;*/
+/*}*/
 
-.word--6 .char5,
-.word--6 .char9 {
-    color: #dc2e2e;
-}
+/*.word--6 .char5,*/
+/*.word--6 .char9 {*/
+/*    color: #dc2e2e;*/
+/*}*/
 
-.word--7 {
-    font-family: 'Volkhov', serif;
-    font-weight: 700;
-}
+/*.word--7 {*/
+/*    font-family: 'Volkhov', serif;*/
+/*    font-weight: 700;*/
+/*}*/
 
-.word--8 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
-    text-transform: lowercase;
-    letter-spacing: -0.05em;
-    color: #0800ff;
-}
+/*.word--8 {*/
+/*    font-family: 'Josefin Sans', sans-serif;*/
+/*    font-weight: 700;*/
+/*    text-transform: lowercase;*/
+/*    letter-spacing: -0.05em;*/
+/*    color: #0800ff;*/
+/*}*/
 
-.word--9 {
-    font-family: 'Montserrat Alternates', serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 8vw;
-}
+/*.word--9 {*/
+/*    font-family: 'Montserrat Alternates', serif;*/
+/*    font-weight: 700;*/
+/*    text-transform: uppercase;*/
+/*    font-size: 8vw;*/
+/*}*/
 
 .shapes {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
 }
+
+/*.shapes polygon:hover {*/
+/*    transform: scale(1.2) !important;*/
+/*    transition: all 1s;*/
+/*}*/
 
 @media screen and (max-width: 40em) {
     .slide .word {

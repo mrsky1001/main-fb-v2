@@ -131,7 +131,7 @@
 
     class Word {
         constructor(el, options) {
-            this.DOM = {};
+            this.DOM = {shapes: []};
             this.options = {
                 shapesOnTop: false
             }
@@ -146,7 +146,6 @@
 
             this.createSVG();
             this.letters = [];
-            console.log(Array.from(this.DOM.el.querySelectorAll('span')).length)
             Array.from(this.DOM.el.querySelectorAll('span')).forEach(letter => this.letters.push(new Letter(letter, this.DOM.svg, this.options)));
         }
 
@@ -175,7 +174,7 @@
             if (this.options.shapesOnTop) {
                 this.DOM.el.parentNode.insertBefore(this.DOM.svg, this.DOM.el.nextSibling);
             } else {
-                this.DOM.el.parentNode.insertBefore(this.DOM.svg, this.DOM.el);
+                document.getElementsByClassName('content')[0].appendChild(this.DOM.svg);
             }
         }
 
@@ -200,13 +199,77 @@
                     if (config.shapesAnimationOpts) {
                         for (let i = 0, len = this.letters.length; i <= len - 1; ++i) {
                             const letter = this.letters[i];
-                            setTimeout(function (letter) {
+                            const DOM = this.DOM
+                            setTimeout(function (letter, DOM) {
                                 return () => {
+                                    console.log(config.shapes)
                                     config.shapesAnimationOpts.targets = letter.shapes.map(shape => shape.DOM.el);
-                                    anime.remove(config.shapesAnimationOpts.targets);
+                                    // config.shapes = config.shapes.concat(config.shapesAnimationOpts.targets)
+                                    // anime.remove(config.shapesAnimationOpts.targets);
                                     anime(config.shapesAnimationOpts);
+                                    // var tl = anime.timeline({
+                                    //     targets: config.shapesAnimationOpts.targets,
+                                    //     delay: function (el, i) {
+                                    //         return i * 200
+                                    //     },
+                                    //     duration: 3500, // Can be inherited
+                                    //     easing: 'easeOutExpo', // Can be inherited
+                                    //     // direction: 'alternate', // Is not inherited
+                                    //     translateY: t => {
+                                    //         const ty = anime.random(-800, 2000);
+                                    //         t.dataset.ty = ty;
+                                    //         return [anime.random(-20, 10), ty];
+                                    //     }, scale: t => {
+                                    //         const s = randomBetween(-1, 1);
+                                    //         const s2 = randomBetween(-1, 1);
+                                    //         t.dataset.s = s;
+                                    //         return [s, s2];
+                                    //     }, rotate: () => anime.random(-45, 45), opacity: {
+                                    //         value: [0, 0.9], duration: 600, delay: 300, easing: 'linear'
+                                    //     }
+                                    // });
+                                    //
+                                    // tl
+                                    //     .add({
+                                    //         translateX: 550,
+                                    //         // override the easing parameter
+                                    //         // easing: 'spring',
+                                    //     })
+                                    //     .add({
+                                    //         opacity: .5,
+                                    //         scale: 2,
+                                    //
+                                    //     })
+                                    //     .add({
+                                    //         // override the targets parameter
+                                    //         rotate: 180
+                                    //     }, '-=10000')
+                                    //     .add({
+                                    //         translateX: 0,
+                                    //         scale: 1,
+                                    //         loop: true
+                                    //     });
+
+                                    // anime.timeline(config.shapesAnimationOpts).add({
+                                    //     targets: config.shapesAnimationOpts.targets,
+                                    //     scale: 1,
+                                    //     loop: true
+                                    // })
+                                    // anime({
+                                    //     targets: config.shapesAnimationOpts.targets,
+                                    //     duration: 3000,
+                                    //     easing: 'easeOutExpo',
+                                    //     scale: t => {
+                                    //         const s = randomBetween(-1, 1);
+                                    //         const s2 = randomBetween(-1, 1);
+                                    //         t.dataset.s = s;
+                                    //         return [s, s2];
+                                    //     }
+                                    // })
+
+
                                 }
-                            }(letter), config.lettersAnimationOpts && config.lettersAnimationOpts.delay ? config.lettersAnimationOpts.delay(letter.DOM.el, i) : 0);
+                            }(letter, DOM), config.lettersAnimationOpts && config.lettersAnimationOpts.delay ? config.lettersAnimationOpts.delay(letter.DOM.el, i) : 0);
                         }
                     }
                     if (config.lettersAnimationOpts) {
