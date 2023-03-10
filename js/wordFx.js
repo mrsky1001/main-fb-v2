@@ -72,17 +72,17 @@
             if (this.type === 'circle') {
                 const r = 0.5 * this.letterRect.width;
                 this.DOM.el.setAttribute('r', r);
-                this.DOM.el.setAttribute('cx', this.letterRect.left + this.letterRect.width / 2);
-                this.DOM.el.setAttribute('cy', this.letterRect.top + this.letterRect.height / 2);
+                this.DOM.el.setAttribute('cx', this.letterRect.left + this.letterRect.width);
+                this.DOM.el.setAttribute('cy', this.letterRect.top + this.letterRect.height);
             } else if (this.type === 'rect') {
                 const w = randomBetween(0.05, 0.5, 3) * this.letterRect.width;
                 const h = randomBetween(0.05, 0.5, 3) * this.letterRect.height;
                 this.DOM.el.setAttribute('width', w);
                 this.DOM.el.setAttribute('height', h);
-                this.DOM.el.setAttribute('x', this.letterRect.left + (this.letterRect.width - w) / 2);
-                this.DOM.el.setAttribute('y', this.letterRect.top + (this.letterRect.height - h) / 2);
+                this.DOM.el.setAttribute('x', this.letterRect.left + (this.letterRect.width - w));
+                this.DOM.el.setAttribute('y', this.letterRect.top + (this.letterRect.height - h));
             } else if (this.type === 'polygon') {
-                this.DOM.el.setAttribute('points', `${this.letterRect.left} ${this.letterRect.top + this.letterRect.height}, ${this.letterRect.left + this.letterRect.width / 2} ${this.letterRect.bottom - this.letterRect.width}, ${this.letterRect.left + this.letterRect.width} ${this.letterRect.top + this.letterRect.height}`);
+                this.DOM.el.setAttribute('points', `${this.letterRect.left} ${this.letterRect.top + this.letterRect.height}, ${this.letterRect.left + this.letterRect.width } ${this.letterRect.bottom - this.letterRect.width}, ${this.letterRect.left + this.letterRect.width} ${this.letterRect.top + this.letterRect.height}`);
                 // this.DOM.el.setAttribute('obj-model', {obj: '/home/mrsky1001/devel/github/svelte_daisy_talwind/decorative-letter-animations/js/jj.obj'})
             }
         }
@@ -171,10 +171,12 @@
             // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
             this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
             // this.DOM.svg.setAttribute('viewbox', `0 0 ${winsize.width} ${winsize.height}`);
+            const content = document.getElementsByClassName('content')[0]
+
             if (this.options.shapesOnTop) {
                 this.DOM.el.parentNode.insertBefore(this.DOM.svg, this.DOM.el.nextSibling);
             } else {
-                document.getElementsByClassName('content')[0].appendChild(this.DOM.svg);
+                content.insertBefore(this.DOM.svg, content.firstChild);
             }
         }
 
@@ -204,68 +206,7 @@
                                 return () => {
                                     console.log(config.shapes)
                                     config.shapesAnimationOpts.targets = letter.shapes.map(shape => shape.DOM.el);
-                                    // config.shapes = config.shapes.concat(config.shapesAnimationOpts.targets)
-                                    // anime.remove(config.shapesAnimationOpts.targets);
                                     anime(config.shapesAnimationOpts);
-                                    // var tl = anime.timeline({
-                                    //     targets: config.shapesAnimationOpts.targets,
-                                    //     delay: function (el, i) {
-                                    //         return i * 200
-                                    //     },
-                                    //     duration: 3500, // Can be inherited
-                                    //     easing: 'easeOutExpo', // Can be inherited
-                                    //     // direction: 'alternate', // Is not inherited
-                                    //     translateY: t => {
-                                    //         const ty = anime.random(-800, 2000);
-                                    //         t.dataset.ty = ty;
-                                    //         return [anime.random(-20, 10), ty];
-                                    //     }, scale: t => {
-                                    //         const s = randomBetween(-1, 1);
-                                    //         const s2 = randomBetween(-1, 1);
-                                    //         t.dataset.s = s;
-                                    //         return [s, s2];
-                                    //     }, rotate: () => anime.random(-45, 45), opacity: {
-                                    //         value: [0, 0.9], duration: 600, delay: 300, easing: 'linear'
-                                    //     }
-                                    // });
-                                    //
-                                    // tl
-                                    //     .add({
-                                    //         translateX: 550,
-                                    //         // override the easing parameter
-                                    //         // easing: 'spring',
-                                    //     })
-                                    //     .add({
-                                    //         opacity: .5,
-                                    //         scale: 2,
-                                    //
-                                    //     })
-                                    //     .add({
-                                    //         // override the targets parameter
-                                    //         rotate: 180
-                                    //     }, '-=10000')
-                                    //     .add({
-                                    //         translateX: 0,
-                                    //         scale: 1,
-                                    //         loop: true
-                                    //     });
-
-                                    // anime.timeline(config.shapesAnimationOpts).add({
-                                    //     targets: config.shapesAnimationOpts.targets,
-                                    //     scale: 1,
-                                    //     loop: true
-                                    // })
-                                    // anime({
-                                    //     targets: config.shapesAnimationOpts.targets,
-                                    //     duration: 3000,
-                                    //     easing: 'easeOutExpo',
-                                    //     scale: t => {
-                                    //         const s = randomBetween(-1, 1);
-                                    //         const s2 = randomBetween(-1, 1);
-                                    //         t.dataset.s = s;
-                                    //         return [s, s2];
-                                    //     }
-                                    // })
 
 
                                 }

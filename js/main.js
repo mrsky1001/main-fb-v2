@@ -53,8 +53,8 @@ class Site {
         this.isAnimate = false
         // this.words.forEach(w => w.hide(effect.hide));
         // Array.from(document.getElementsByTagName('svg')).forEach(e => e.remove())
-        this.DOM.bg = this.DOM.el.querySelector('.slide__bg');
-        this.DOM.word = this.DOM.el.querySelector('.active .word');
+        this.DOM.bg = this.DOM.el.querySelector('.title-page');
+        this.DOM.word = this.DOM.el.querySelector('.title-page');
 
         this.word = new Word(this.DOM.word, effect.options);
         // this.words.push(this.word)
@@ -138,7 +138,7 @@ class Site {
         if (!this.isAnimate) {
             this.DOM.bg.style.transform = 'none';
             this.isAnimate = true
-            this.DOM.word = this.DOM.el.querySelector('.active .word');
+            this.DOM.word = this.DOM.el.querySelector('.title-page');
             this.word.init(this.DOM.word)
             this.word.show(effect.show);
 
@@ -161,7 +161,7 @@ class Site {
     }
 }
 
-Array.from(document.getElementsByClassName('word')).forEach(v => {
+Array.from(document.getElementsByClassName('title-page')).forEach(v => {
     charming(v);
 })
 
