@@ -2,7 +2,7 @@ const effect = {
     options: {
         shapeColors: ['#FD74FF', '#3771FC', '#7C5CE4', '#542A95', '#ACC7FE'],
         shapeTypes: ['rect', 'polygon', 'circle'],
-        totalShapes: 2
+        totalShapes: 3
     }, hide: {
         shapesAnimationOpts: {
             duration: 350,
@@ -18,7 +18,6 @@ const effect = {
             }
         }
     }, show: {
-        shapes: [],
         lettersAnimationOpts: {
             duration: 1200,
             delay: () => anime.random(0, 75),

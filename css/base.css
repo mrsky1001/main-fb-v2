@@ -245,7 +245,7 @@ main {
     margin: 0 auto;
     min-height: 100vh;
     perspective: 100px;
-    /*height: 100vh;*/
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -326,6 +326,7 @@ main {
     align-content: center;
     justify-content: center;
     pointer-events: none;
+    flex-direction: column;
     opacity: 1;
     z-index: 1;
 }
