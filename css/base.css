@@ -191,14 +191,20 @@ body {
 }
 
 /* Color schemes */
+/*.demo-1 {*/
+/*    --color-text: #fff;*/
+/*    --color-bg: #101010;*/
+/*    --color-link: #fff;*/
+/*    --color-link-hover: #fff473;*/
+/*    --color-nav: #fff;*/
+/*}*/
 .demo-1 {
-    --color-text: #fff;
-    --color-bg: #101010;
-    --color-link: #fff;
+    --color-text: #333;
+    --color-bg: #f0f0f0;
+    --color-link: #000;
     --color-link-hover: #fff473;
-    --color-nav: #fff;
+    --color-nav: #000;
 }
-
 a {
     text-decoration: none;
     color: var(--color-link);
@@ -317,9 +323,9 @@ main {
 }
 
 /* Slideshow */
-.page{
-    width: 100vw;
-    height: 100vh;
+.section{
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     display: flex;
@@ -327,11 +333,60 @@ main {
     justify-content: center;
     pointer-events: none;
     flex-direction: column;
+    align-items: center;
     opacity: 1;
     z-index: 1;
+    position: relative;
 }
 
-.start-page {
+.body-section{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    pointer-events: none;
+    flex-direction: column;
+    transform: translateZ(-20px);
+    width: 50%;
+    height: 100%;
+    position: relative;
+
+}
+
+.row-section{
+    display: flex;
+    pointer-events: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.description-section{
+    font-size: 24px;
+    max-width: 25%;
+}
+.img-section{
+    width: 400px;
+    height: 400px;
+}
+
+.img-head{
+    background: url("../imgs/IMG_9255.jpg");
+    background-position-x: -70px;
+    background-size: cover;
+
+}
+
+.img-second{
+    background: url("../imgs/DSC03022.jpg");
+    background-position-x: -70px;
+    background-size: cover;
+
+}
+
+.start-section {
     /*position: absolute;*/
     top: 0;
     left: 0;
@@ -340,75 +395,10 @@ main {
 }
 
 .parallax-front{
-    transform: translateZ(50px);
-}
-/*
-.slide {
-    !*position: absolute;*!
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 1;
+    transform: translateZ(40px);
 }
 
-.slide-header {
-}
-
-.slide.active {
-    opacity: 1;
-    transition: all 1s;
-
-}
-
-.slide--current {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 100;
-}
-
-.slide__bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: var(--color-bg-slide-9);
-}
-
-.slidenav {
-    position: relative;
-    margin: 16em 0 0 0;
-    z-index: 200;
-}
-
-.slidenav__item {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    color: var(--color-nav);
-    margin: 1em;
-}
-
-.slidenav__item:focus {
-    outline: none;
-}
-
-.slidenav__item:hover {
-    opacity: 0.6;
-}
-
-.slidenav__item--next .icon {
-    transform: rotate(180deg);
-}*/
-
-/* Word + SVG styles */
-.title-page {
+.title-section {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -428,70 +418,25 @@ main {
     font-weight: 400;
 }
 
-.title-page span {
+.title-section span {
     display: block;
     position: relative;
     flex: none;
     white-space: pre;
 }
 
-.title-page {
+.title-section {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 5em;
 }
 
-/*.word--2 {*/
-/*    font-family: 'Arbutus Slab', serif;*/
-/*}*/
-
-/*.word--3 {*/
-/*    font-family: 'Questrial', sans-serif;*/
-/*}*/
-
-/*.word--4 {*/
-/*    font-family: 'Poppins', sans-serif;*/
-/*    font-weight: 800;*/
-/*}*/
-
-/*.word--5 {*/
-/*    font-family: 'Bungee Outline', cursive;*/
-/*}*/
-
-/*.word--6 {*/
-/*    font-family: 'Hammersmith One', sans-serif;*/
-/*}*/
-
-/*.word--6 .char5,*/
-/*.word--6 .char9 {*/
-/*    color: #dc2e2e;*/
-/*}*/
-
-/*.word--7 {*/
-/*    font-family: 'Volkhov', serif;*/
-/*    font-weight: 700;*/
-/*}*/
-
-/*.word--8 {*/
-/*    font-family: 'Josefin Sans', sans-serif;*/
-/*    font-weight: 700;*/
-/*    text-transform: lowercase;*/
-/*    letter-spacing: -0.05em;*/
-/*    color: #0800ff;*/
-/*}*/
-
-/*.word--9 {*/
-/*    font-family: 'Montserrat Alternates', serif;*/
-/*    font-weight: 700;*/
-/*    text-transform: uppercase;*/
-/*    font-size: 8vw;*/
-/*}*/
-
 .shapes {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
 /*.shapes polygon:hover {*/
@@ -500,7 +445,7 @@ main {
 /*}*/
 
 @media screen and (max-width: 40em) {
-    .slide .title-page {
+    .slide .title-section {
         font-size: 2em;
     }
 }

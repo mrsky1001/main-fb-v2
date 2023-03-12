@@ -29,12 +29,12 @@ const effect = {
             duration: 3000,
             easing: 'easeOutExpo',
             translateY: t => {
-                const ty = anime.random(-800, 3000);
+                const ty = anime.random(300, 3000);
                 t.dataset.ty = ty;
-                return [anime.random(-20, 100), ty];
+                return [anime.random(-200, 100), ty];
             }, scale: t => {
-                const s = randomBetween(-1, 1);
-                const s2 = randomBetween(-1, 1);
+                const s = randomBetween(0, 1);
+                const s2 = randomBetween(0, 1);
                 t.dataset.s = s;
                 return [s, s2];
             }, rotate: () => anime.random(-45, 45), opacity: {
@@ -52,8 +52,8 @@ class Site {
         this.isAnimate = false
         // this.words.forEach(w => w.hide(effect.hide));
         // Array.from(document.getElementsByTagName('svg')).forEach(e => e.remove())
-        this.DOM.bg = this.DOM.el.querySelector('.title-page');
-        this.DOM.word = this.DOM.el.querySelector('.title-page');
+        this.DOM.bg = this.DOM.el.querySelector('.title-section');
+        this.DOM.word = this.DOM.el.querySelector('.title-section');
 
         this.word = new Word(this.DOM.word, effect.options);
         // this.words.push(this.word)
@@ -137,7 +137,7 @@ class Site {
         if (!this.isAnimate) {
             this.DOM.bg.style.transform = 'none';
             this.isAnimate = true
-            this.DOM.word = this.DOM.el.querySelector('.title-page');
+            this.DOM.word = this.DOM.el.querySelector('.title-section');
             this.word.init(this.DOM.word)
             this.word.show(effect.show);
 
@@ -160,8 +160,8 @@ class Site {
     }
 }
 
-Array.from(document.getElementsByClassName('title-page')).forEach(v => {
+Array.from(document.getElementsByClassName('title-section')).forEach(v => {
     charming(v);
 })
 
-const site = new Site(document.querySelector('.start-page'))
+const site = new Site(document.querySelector('.start-section'))
