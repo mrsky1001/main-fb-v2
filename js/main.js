@@ -1,23 +1,74 @@
+
+const  translateX = (isUp = true) => {
+
+    anime({
+        translateX: function(x) {
+            console.log(x)
+
+            let r = anime.random(0, 270);
+            return isUp?r:-r
+        },
+        easing: 'easeInOutQuad',
+        duration: 1000,
+        complete: translateX
+    });
+}
+
+const translateXUp = translateX(true)
+const translateXDown = translateX(false)
+
+
 const effect = {
     options: {
         shapeColors: ['#FD74FF', '#3771FC', '#7C5CE4', '#542A95', '#ACC7FE'],
         shapeTypes: ['rect', 'polygon', 'circle'],
         totalShapes: 3
-    }, hide: {
+    }, wave: {
         shapesAnimationOpts: {
-            duration: 350,
+            translateX: function() {
+                return anime.random(0, 270);
+            },
+            easing: 'easeInOutQuad',
+            duration: 750,
+        }
+    }, moveRandom:(isUp)=> {return {
+        shapesAnimationOpts: {
+            translateX: ()=>  {
+                console.log(isUp)
+                let r = anime.random(0, 570);
+                return isUp?'+='+r:'+=-'+r
+            },
+            duration:2000,
+            easing: 'easeInOutSine',
+            complete: translateX
+        }
+        }
+    }, wave2: {
+        shapesAnimationOpts: {
+            duration: 3500,
+            scale: [
+                {value: .1, easing: 'easeOutSine', duration: 500},
+                {value: 1, easing: 'easeInOutQuad', duration: 1200}
+            ],
+            delay: anime.stagger(200, {grid: [14, 5], from: 'center'})
+        }
+    },
+    block: {
+        shapesAnimationOpts: {
+            duration: 3500,
             easing: 'easeOutExpo',
             translateX: t => [t.dataset.tx, anime.random(-250, 250)],
             translateY: t => [t.dataset.ty, anime.random(-250, 250)],
             scale: 1,
             rotate: 0,
             opacity: {
-                value: 0,
+                value: 1,
                 duration: 200,
                 easing: 'linear'
             }
         }
-    }, show: {
+    },
+    show: {
         lettersAnimationOpts: {
             duration: 1200,
             delay: () => anime.random(0, 75),
@@ -57,79 +108,9 @@ class Site {
 
         this.word = new Word(this.DOM.word, effect.options);
         // this.words.push(this.word)
-        this.word.show(effect.show).then(() => {
-            const shapes = effect.show.shapes
-            // setTimeout(function (shapes) {
-            //     console.log(shapes)
-            //     return () => {
-            //         anime({
-            //             targets: shapes,
-            //             duration: 3000,
-            //             easing: 'easeOutExpo',
-            //             // translateY: t => {
-            //             //     const ty = anime.random(-300, 300);
-            //             //     t.dataset.ty = ty;
-            //             //     return [anime.random(-20, 10), ty];
-            //             // },
-            //             // translateX:  [
-            //             //     {value: 250, duration: 1000, delay: 500},
-            //             //     {value: 0, duration: 1000, delay: 500}
-            //             // ],
-            //             // translateY: [
-            //             //     {value: -40, duration: 500},
-            //             //     {value: 40, duration: 500, delay: 1000},
-            //             //     {value: 0, duration: 500, delay: 1000}
-            //             // ],
-            //             // scaleX: t => {
-            //             //     console.log(t.dataset
-            //             //     )
-            //             //     // const s = randomBetween(-1, 1);
-            //             //     const s2 = randomBetween(-1, 1);
-            //             //     // t.dataset.s = s2;
-            //             //     return {value: [4, 1, 4], duration: 1000, delay: 500, loop: true, easing: 'easeOutExpo'}
-            //             // },
-            //             // scaleX: [
-            //             //     {value: 4, duration: 100, delay: 500, easing: 'easeOutExpo'},
-            //             //     {value: 1, duration: 900},
-            //             //     {value: 4, duration: 100, delay: 500, easing: 'easeOutExpo'},
-            //             //     {value: 1, duration: 900}
-            //             // ],
-            //             // scaleY: [
-            //             //     {value: [1.75, 1], duration: 500},
-            //             //     {value: 2, duration: 50, delay: 1000, easing: 'easeOutExpo'},
-            //             //     {value: 1, duration: 450},
-            //             //     {value: 1.75, duration: 50, delay: 1000, easing: 'easeOutExpo'},
-            //             //     {value: 1, duration: 450}
-            //             // ],
-            //             // rotate: () => anime.random(-45, 45), opacity: {
-            //             //     value: [0, 0.9], duration: 600, delay: 300, easing: 'linear'
-            //             // },
-            //             loop: true
-            //         })
-            //     }
-            // }(shapes), 1000)
-        });
-
-
+        this.word.show(effect.show)
     }
 
-    // show() {
-    //     this.DOM.bg.style.transform = 'none';
-    //     anime({
-    //         targets: this.DOM.bg,
-    //         duration: 600,
-    //         easing: [0.2, 1, 0.3, 1],
-    //         translateY: ['0%', '-100%'],
-    //         complete: () => {
-    //             setTimeout(() => {
-    //                 this.isAnimate = false
-    //                 anime.remove(this.DOM.bg)
-    //
-    //             }, 100)
-    //
-    //         }
-    //     })
-    // }
 
     reset() {
 
@@ -145,17 +126,6 @@ class Site {
             setTimeout(() => {
                 this.isAnimate = false
             }, 1000)
-            // this.words.forEach(w => w.hide(effect.hide));
-            // Array.from(document.getElementsByTagName('svg')).forEach(e => e.remove())
-            // this.DOM.bg = this.DOM.el.querySelector('.slide__bg');
-            // this.DOM.word = this.DOM.el.querySelector('.active .word');
-            //
-            // const word = new Word(this.DOM.word, effect.options);
-            // this.words.push(word)
-            // word.show(effect.show).then();
-
-            // this.show()
-
         }
     }
 }
@@ -165,3 +135,17 @@ Array.from(document.getElementsByClassName('title-section')).forEach(v => {
 })
 
 const site = new Site(document.querySelector('.start-section'))
+
+document.getElementsByClassName('shapes')[0].addEventListener('click',()=>{
+    site.word.animate(effect.wave)
+})
+
+window.addEventListener('wheel',(e)=>{
+console.log(e.deltaY)
+    if(e.deltaY> 0)
+    site.word.animate(effect.moveRandom(true))
+    else
+        site.word.animate(effect.moveRandom(false))
+
+})
+

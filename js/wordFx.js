@@ -41,12 +41,12 @@
 
         configureShapeType() {
             this.DOM.el.style.transformOrigin = `100px 100px`;
-            const e = window.outerWidth/50
+            const e = window.outerWidth / 50
             const w = randomBetween(0.05, e, 3);
             const h = randomBetween(0.05, e, 3);
-            const x = randomBetween( window.outerWidth, window.outerWidth, 1);
-            const y = randomBetween(window.outerHeight/2, window.outerHeight, 1);
-            const z = randomBetween(window.outerHeight/2, window.outerHeight, 1);
+            const x = randomBetween(window.outerWidth, window.outerWidth, 1);
+            const y = randomBetween(window.outerHeight / 2, window.outerHeight, 1);
+            const z = randomBetween(window.outerHeight / 2, window.outerHeight, 1);
             const s = randomBetween(0.05, e, 3);
             this.DOM.el.setAttribute('opacity', '0.1');
 
@@ -56,14 +56,14 @@
                 this.DOM.el.setAttribute('cx', x);
                 this.DOM.el.setAttribute('cy', y);
             } else if (this.type === 'rect') {
-                this.DOM.el.setAttribute('width', w*2);
+                this.DOM.el.setAttribute('width', w * 2);
                 this.DOM.el.setAttribute('height', h);
                 this.DOM.el.setAttribute('x', x);
                 this.DOM.el.setAttribute('y', y);
             } else if (this.type === 'polygon') {
-                const xx = x/2
+                const xx = x / 2
                 const d = 300
-                this.DOM.el.setAttribute('points', `${xx} ${xx+s}, ${xx+s} ${xx}, ${xx-s} ${xx}`);
+                this.DOM.el.setAttribute('points', `${xx} ${xx + s}, ${xx + s} ${xx}, ${xx - s} ${xx}`);
                 // this.DOM.el.setAttribute('obj-model', {obj: '/home/mrsky1001/devel/github/svelte_daisy_talwind/decorative-letter-animations/js/jj.obj'})
             }
         }
@@ -134,64 +134,40 @@
             return this.toggle('hide', config);
         }
 
-        toggle(action = 'show', config) {
-            this.letters = Array.from(this.DOM.el.querySelectorAll('span'))
-            config.lettersAnimationOpts.targets = this.letters
-            anime(config.lettersAnimationOpts);
+        animate(config) {
+            if (!this.isAnimate) {
+                this.isAnimate = true
 
-            this.rect = this.DOM.el.getBoundingClientRect();
-            this.shapes = [];
-            for (let i = 0; i <= 200 - 1; ++i) {
-                const shape = new Shape2('random', this.options);
-                this.shapes.push(shape);
-                this.DOM.svg.appendChild(shape.DOM.el);
+                config.shapesAnimationOpts.targets = this.shapes.map(shape => shape.DOM.el);
+
+                anime(config.shapesAnimationOpts).finished.then(() => {
+                    this.isAnimate = false
+                });
             }
+        }
 
-                                config.shapesAnimationOpts.targets = this.shapes.map(shape => shape.DOM.el);
-            anime(config.shapesAnimationOpts);
+        toggle(action = 'show', config) {
+            if (!this.isAnimate) {
+                this.isAnimate = true
 
-            return new Promise((resolve, reject) => {
-                // const toggleNow = () => {
-                //     for (let i = 0, len = this.letters.length; i <= len - 1; ++i) {
-                //         this.letters[i].DOM.el.style.opacity = action === 'show' ? 1 : 0;
-                //     }
-                //     resolve();
-                // };
+                this.letters = Array.from(this.DOM.el.querySelectorAll('span'))
+                config.lettersAnimationOpts.targets = this.letters
+                anime(config.lettersAnimationOpts);
 
-                // if (config && Object.keys(config).length !== 0) {
-                //     if (config.shapesAnimationOpts) {
-                //         for (let i = 0, len = this.letters.length; i <= len - 1; ++i) {
-                //             const letter = this.letters[i];
-                //             const DOM = this.DOM
-                //             setTimeout(function (letter, DOM) {
-                //                 return () => {
-                //                     console.log(config.shapes)
-                //                     config.shapesAnimationOpts.targets = letter.shapes.map(shape => shape.DOM.el);
-                //                     anime(config.shapesAnimationOpts);
-                //
-                //
-                //                 }
-                //             }(letter, DOM), config.lettersAnimationOpts && config.lettersAnimationOpts.delay ? config.lettersAnimationOpts.delay(letter.DOM.el, i) : 0);
-                //         }
-                //     }
-                //     if (config.lettersAnimationOpts) {
-                //         config.lettersAnimationOpts.targets = this.letters.map(letter => letter.DOM.el);
-                //         config.lettersAnimationOpts.complete = () => {
-                //             if (action === 'hide') {
-                //                 for (let i = 0, len = config.lettersAnimationOpts.targets.length; i <= len - 1; ++i) {
-                //                     config.lettersAnimationOpts.targets[i].style.transform = 'none';
-                //                 }
-                //             }
-                //             resolve();
-                //         };
-                //         anime(config.lettersAnimationOpts);
-                //     } else {
-                //         resolve();
-                //     }
-                // } else {
-                //     resolve();
-                // }
-            });
+                this.rect = this.DOM.el.getBoundingClientRect();
+                this.shapes = [];
+                for (let i = 0; i <= 200 - 1; ++i) {
+                    const shape = new Shape2('random', this.options);
+                    this.shapes.push(shape);
+                    this.DOM.svg.appendChild(shape.DOM.el);
+                }
+
+                config.shapesAnimationOpts.targets = this.shapes.map(shape => shape.DOM.el);
+                anime(config.shapesAnimationOpts).finished.then(() => {
+                    this.isAnimate = false
+
+                });
+            }
         }
     }
 
