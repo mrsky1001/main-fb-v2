@@ -1,23 +1,3 @@
-
-const  translateX = (isUp = true) => {
-
-    anime({
-        translateX: function(x) {
-            console.log(x)
-
-            let r = anime.random(0, 270);
-            return isUp?r:-r
-        },
-        easing: 'easeInOutQuad',
-        duration: 1000,
-        complete: translateX
-    });
-}
-
-const translateXUp = translateX(true)
-const translateXDown = translateX(false)
-
-
 const effect = {
     options: {
         shapeColors: ['#FD74FF', '#3771FC', '#7C5CE4', '#542A95', '#ACC7FE'],
@@ -25,23 +5,22 @@ const effect = {
         totalShapes: 3
     }, wave: {
         shapesAnimationOpts: {
-            translateX: function() {
+            translateX: function () {
                 return anime.random(0, 270);
             },
             easing: 'easeInOutQuad',
             duration: 750,
         }
-    }, moveRandom:(isUp)=> {return {
-        shapesAnimationOpts: {
-            translateX: ()=>  {
-                console.log(isUp)
-                let r = anime.random(0, 570);
-                return isUp?'+='+r:'+=-'+r
-            },
-            duration:2000,
-            easing: 'easeInOutSine',
-            complete: translateX
-        }
+    }, moveRandom: (isUp) => {
+        return {
+            shapesAnimationOpts: {
+                translateX: () => {
+                    let r = anime.random(0, 570);
+                    return isUp ? '+=' + r : '+=-' + r
+                },
+                duration: 2000,
+                easing: 'easeInOutSine',
+            }
         }
     }, wave2: {
         shapesAnimationOpts: {
@@ -136,16 +115,21 @@ Array.from(document.getElementsByClassName('title-section')).forEach(v => {
 
 const site = new Site(document.querySelector('.start-section'))
 
-document.getElementsByClassName('shapes')[0].addEventListener('click',()=>{
+document.getElementsByClassName('shapes')[0].addEventListener('click', () => {
     site.word.animate(effect.wave)
 })
 
-window.addEventListener('wheel',(e)=>{
-console.log(e.deltaY)
-    if(e.deltaY> 0)
-    site.word.animate(effect.moveRandom(true))
-    else
-        site.word.animate(effect.moveRandom(false))
+let layerY = window.layerY
+
+window.addEventListener('wheel', (e) => {
+    if (e.layerY !== layerY) {
+        layerY = e.layerY
+
+        if (e.deltaY > 0)
+            site.word.animate(effect.moveRandom(true))
+        else
+            site.word.animate(effect.moveRandom(false))
+    }
 
 })
 
