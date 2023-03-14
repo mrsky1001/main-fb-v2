@@ -15,10 +15,10 @@ const effect = {
         return {
             shapesAnimationOpts: {
                 translateX: () => {
-                    let r = anime.random(0, 570);
+                    let r = anime.random(200, 1070);
                     return isUp ? '+=' + r : '+=-' + r
                 },
-                duration: 2000,
+                duration: 5000,
                 easing: 'easeInOutSine',
             }
         }
@@ -134,24 +134,39 @@ window.addEventListener('wheel', (e) => {
 
 })
 
-Array.from(document.getElementsByClassName('img-article')).forEach(img => {
+Array.from(document.getElementsByClassName('icons-bar')[1].getElementsByClassName('img-article')).forEach(img => {
     console.log('img')
 
-    img.addEventListener('mouseover', () => {
-        console.log('mouseover')
+    img.onmouseenter = () => {
+        console.log(`${img.className} > svg .path`)
         anime({
-            targets: '.img-article .lines path',
+            targets: `.middle .${img.classList[0]} > svg .path`,
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: 'easeInOutSine',
+            stroke: "#333",
             duration: 1500,
             delay: function (el, i) {
                 return i * 250
             },
-            direction: 'alternate',
-            loop: true
         }).finished.then(() => {
         });
-    })
+    }
+
+    img.onmouseleave = () => {
+        console.log(`${img.className} > svg .path`)
+        anime({
+            targets: `.middle .${img.classList[0]} > svg .path`,
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            stroke: "#333",
+            duration: 1500,
+            delay: function (el, i) {
+                return i * 250
+            },
+            direction: 'reverse'
+        }).finished.then(() => {
+        });
+    }
 })
 
 document.body.scroll(0, 1000)
