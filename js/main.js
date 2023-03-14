@@ -109,6 +109,7 @@ class Site {
     }
 }
 
+
 Array.from(document.getElementsByClassName('title-section')).forEach(v => {
     charming(v);
 })
@@ -133,3 +134,24 @@ window.addEventListener('wheel', (e) => {
 
 })
 
+Array.from(document.getElementsByClassName('img-article')).forEach(img => {
+    console.log('img')
+
+    img.addEventListener('mouseover', () => {
+        console.log('mouseover')
+        anime({
+            targets: '.img-article .lines path',
+            strokeDashoffset: [anime.setDashoffset, 0],
+            easing: 'easeInOutSine',
+            duration: 1500,
+            delay: function (el, i) {
+                return i * 250
+            },
+            direction: 'alternate',
+            loop: true
+        }).finished.then(() => {
+        });
+    })
+})
+
+document.body.scroll(0, 1000)
