@@ -1,6 +1,7 @@
+const colors = ['#FD74FF', '#3771FC', '#7C5CE4', '#542A95', '#ACC7FE']
 const effect = {
     options: {
-        shapeColors: ['#FD74FF', '#3771FC', '#7C5CE4', '#542A95', '#ACC7FE'],
+        shapeColors: colors,
         shapeTypes: ['rect', 'polygon', 'circle'],
         totalShapes: 3
     }, wave: {
@@ -136,40 +137,32 @@ window.addEventListener('wheel', (e) => {
 
 const isAnimateObj = {home: false, dev: false, design: false, store: false, travel: false, photo: false}
 const animatePool = []
-const an = anime({
+const an = (name) => anime({
     targets: `.${name}.card-article > svg .path`,
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutSine',
     stroke: "#3771FC",
     duration: 1500,
+    autoplay: false,
     delay: function (el, i) {
         return i * 250
     },
-}).finished.then(() => {
-    isAnimateObj[name] = false
 })
-
-const animateArticleIcon = (name, show) => {
-
-
-    if (show)
-        if (!isAnimateObj[name]) {
-            isAnimateObj[name] = true
-            an.play()
-        } else {
-            isAnimateObj[name] = true
-            an.stop().reverse();
-        }
-}
-
-Array.from(document.getElementsByClassName('card-article')).forEach(img => {
-    console.log(img.classList[0])
-    img.onmouseenter = () => {
-        animateArticleIcon(img.classList[0], true)
-    }
-
-    img.onmouseleave = () => {
-        animateArticleIcon(img.classList[0], false)
-    }
-})
+//
+// const animateArticleIcon = (name,) => {
+//     console.log(an(name).isAnimate)
+//     if (an(name).isAnimate) {
+//         console.log('play')
+//         an(name).play()
+//     } else {
+//         an(name).stop().reverse();
+//     }
+// }
+//
+// Array.from(document.getElementsByClassName('card-article')).forEach(img => {
+//     console.log(img.classList[0])
+//     img.onclick = () => {
+//         animateArticleIcon(img.classList[0])
+//     }
+// })
 
