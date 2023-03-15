@@ -134,38 +134,42 @@ window.addEventListener('wheel', (e) => {
 
 })
 
-Array.from(document.getElementsByClassName('icons-bar')[1].getElementsByClassName('title-article')).forEach(img => {
-    console.log('img')
+const isAnimateObj = {home: false, dev: false, design: false, store: false, travel: false, photo: false}
+const animatePool = []
+const an = anime({
+    targets: `.${name}.card-article > svg .path`,
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    stroke: "#3771FC",
+    duration: 1500,
+    delay: function (el, i) {
+        return i * 250
+    },
+}).finished.then(() => {
+    isAnimateObj[name] = false
+})
 
+const animateArticleIcon = (name, show) => {
+
+
+    if (show)
+        if (!isAnimateObj[name]) {
+            isAnimateObj[name] = true
+            an.play()
+        } else {
+            isAnimateObj[name] = true
+            an.stop().reverse();
+        }
+}
+
+Array.from(document.getElementsByClassName('card-article')).forEach(img => {
+    console.log(img.classList[0])
     img.onmouseenter = () => {
-        anime({
-            targets: `.icon-article > .img-${img.classList[0]} > svg .path`,
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            stroke: "#333",
-            duration: 1500,
-            delay: function (el, i) {
-                return i * 250
-            },
-        }).finished.then(() => {
-        });
+        animateArticleIcon(img.classList[0], true)
     }
 
     img.onmouseleave = () => {
-        console.log(`.icons-article > .img-${img.classList[0]} > svg .path`)
-        anime({
-            targets: `.icon-article > .img-${img.classList[0]} > svg .path`,
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            stroke: "#333",
-            duration: 1500,
-            delay: function (el, i) {
-                return i * 250
-            },
-            direction: 'reverse'
-        }).finished.then(() => {
-        });
+        animateArticleIcon(img.classList[0], false)
     }
 })
 
-document.body.scroll(0, 1000)
