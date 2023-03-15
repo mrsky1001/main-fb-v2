@@ -134,13 +134,12 @@ window.addEventListener('wheel', (e) => {
 
 })
 
-Array.from(document.getElementsByClassName('icons-bar')[1].getElementsByClassName('img-article')).forEach(img => {
+Array.from(document.getElementsByClassName('icons-bar')[1].getElementsByClassName('title-article')).forEach(img => {
     console.log('img')
 
     img.onmouseenter = () => {
-        console.log(`${img.className} > svg .path`)
         anime({
-            targets: `.middle .${img.classList[0]} > svg .path`,
+            targets: `.icon-article > .img-${img.classList[0]} > svg .path`,
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: 'easeInOutSine',
             stroke: "#333",
@@ -153,9 +152,9 @@ Array.from(document.getElementsByClassName('icons-bar')[1].getElementsByClassNam
     }
 
     img.onmouseleave = () => {
-        console.log(`${img.className} > svg .path`)
+        console.log(`.icons-article > .img-${img.classList[0]} > svg .path`)
         anime({
-            targets: `.middle .${img.classList[0]} > svg .path`,
+            targets: `.icon-article > .img-${img.classList[0]} > svg .path`,
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: 'easeInOutSine',
             stroke: "#333",
