@@ -1,0 +1,37 @@
+User-agent: *
+Crawl-delay: 1
+Host: foma-blog.ru
+Disallow: /loginST
+Disallow: /registration
+Disallow: /new
+Disallow: /logout
+Disallow: /deleteAccount
+Sitemap: https://foma-blog.ru/sitemap.xml
+
+
+User-agent: Googlebot
+Crawl-delay: 1
+Disallow: /loginST
+Disallow: /registration
+Disallow: /new
+Disallow: /logout
+Disallow: /deleteAccount
+Sitemap: https://foma-blog.ru/sitemap.xml
+
+User-agent: Yandex
+Crawl-delay: 1
+Disallow: /loginST
+Disallow: /registration
+Disallow: /new
+Disallow: /logout
+Disallow: /deleteAccount
+Sitemap: https://foma-blog.ru/sitemap.xml
+
+User-agent: Mediapartners-Google
+Crawl-delay: 1
+Disallow: /loginST
+Disallow: /registration
+Disallow: /new
+Disallow: /logout
+Disallow: /deleteAccount
+Sitemap: https://foma-blog.ru/sitemap.xml

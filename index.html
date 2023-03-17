@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FOMA-BLOG</title>
-    <meta name="description" content="Some SVG shape animations for fun letter effect"/>
-    <meta name="keyword" content="svg, animation, letter, word, shapes, javascript, animejs"/>
-    <meta name="author" content="Codrops"/>
-    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <title>Разработка, дизайн, фотография и плюшки | FOMA-BLOG.RU</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="manifest" href="site.webmanifest">
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="all">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="author" content="Mr.Sky1001"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 </head>
 <body>
-<header class="icons-bar top">
-    <div class="img-home img-article">
+<nav class="navbar">
+    <div class="nav-item">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -80,7 +86,7 @@ c55 -53 55 -137 -1 -186 -25 -23 -40 -28 -81 -28 -44 0 -55 4 -84 33 -44 44
         </svg>
 
     </div>
-    <div class="img-design img-article">
+    <div class="nav-item">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -131,7 +137,7 @@ c57 -45 86 -107 79 -169 -19 -169 -237 -229 -337 -92 -70 96 -36 222 76 282
             </g>
         </svg>
     </div>
-    <div class="img-store img-article">
+    <div class="nav-item">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -205,8 +211,7 @@ m2122 -528 c67 -28 65 -2 65 -746 l0 -670 -480 0 -480 0 0 673 c0 517 3 678
             </g>
         </svg>
     </div>
-
-    <div class="img-dev img-article">
+    <div class="nav-item">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -283,7 +288,7 @@ l-38 90 61 94 c37 59 60 105 60 123 0 23 -22 50 -118 146 -96 96 -123 118
             </g>
         </svg>
     </div>
-    <div class="img-travel img-article">
+    <div class="nav-item">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -367,7 +372,7 @@ m266 -150 c179 -83 219 -321 78 -462 -54 -54 -114 -78 -198 -78 -86 0 -146 25
             </g>
         </svg>
     </div>
-    <div class="img-photo img-article">
+    <div class="nav-item">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
              preserveAspectRatio="xMidYMid meet">
@@ -421,50 +426,49 @@ l2125 -2 49 -24z"/>
             </g>
         </svg>
     </div>
-</header>
-<main class="content parallax-container">
+</nav>
+<main class="container parallax-container">
     <div class="parallax-front ">
-        <section id="home" class="start-section section ">
-            <h2 class=" title-section title-page">FOMA-BLOG<span>_</span></h2>
+        <section id="home" class="start-section section">
+            <h2 class="title">FOMA-BLOG<span>_</span></h2>
         </section>
-        <section id="about" class="about-section section ">
-            <h2 class="title-section">О нас</h2>
-            <div class="body-section">
-                <div class="row-section">
-                    <div class="img-head img-section">
+        <section id="about" class="about-section section">
+            <h2 class="title">О нас</h2>
+            <div class="rows">
+                <div class="row">
+                    <div class="head-img img">
                     </div>
-                    <div class="description-section">
-                            <span>
-                                Мы, Никита и Настя, авторы проекта «F.O.M.A.» - бренда о любви к традициям в переплетении с
-                                современными технологиями.
-                            </span>
+                    <div class="description">
+                        <span>
+                            Мы, Никита и Настя, авторы проекта «F.O.M.A.» - бренда о любви к традициям в переплетении с
+                            современными технологиями.
+                        </span>
                     </div>
 
                 </div>
-                <div class="row-section">
-                    <div class="description-section">
-                            <span>
-                                Рады приветсвовать тебя в нашем уголке творчества!
-                            </span>
+                <div class="row">
+                    <div class="description">
+                        <span>
+                            Рады приветсвовать тебя в нашем уголке творчества!
+                        </span>
                     </div>
-                    <div class="img-second img-section">
+                    <div class="last-img img">
                     </div>
-
                 </div>
             </div>
         </section>
         <section id="articles" class="articles-section section">
-            <h2 class="title-section ">О чём мы пишем?</h2>
-            <div class="description-section">
+            <h2 class="title">О чём мы пишем?</h2>
+            <div class="description">
                 <span>
                     Сайт foma-blog.ru посвящен заметкам из области программирования, дизайна и фотографии, а так
                     же
                     историям из путешествий по просторам нашей необъятной.
                 </span>
             </div>
-            <div class="content-section">
-                <div class="row-section">
-                    <div class="dev card-article">
+            <div class="cards">
+                <div class="row">
+                    <div class="dev card">
                         <span> Разработка </span>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
@@ -542,7 +546,7 @@ l-38 90 61 94 c37 59 60 105 60 123 0 23 -22 50 -118 146 -96 96 -123 118
                             </g>
                         </svg>
                     </div>
-                    <div class="travel card-article">
+                    <div class="travel card">
                         <span> Путешествия </span>
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
@@ -627,7 +631,7 @@ m266 -150 c179 -83 219 -321 78 -462 -54 -54 -114 -78 -198 -78 -86 0 -146 25
                             </g>
                         </svg>
                     </div>
-                    <div class="design card-article">
+                    <div class="design card">
                         <span> Дизайн </span>
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
@@ -680,8 +684,8 @@ c57 -45 86 -107 79 -169 -19 -169 -237 -229 -337 -92 -70 96 -36 222 76 282
                         </svg>
                     </div>
                 </div>
-                <div class="row-section">
-                    <div class="home card-article">
+                <div class="row">
+                    <div class="home card">
                             <span>
                                 Дом и техника
                             </span>
@@ -752,7 +756,7 @@ c55 -53 55 -137 -1 -186 -25 -23 -40 -28 -81 -28 -44 0 -55 4 -84 33 -44 44
                             </g>
                         </svg>
                     </div>
-                    <div class="store card-article">
+                    <div class="store card">
                         <span> Лавка</span>
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
@@ -828,7 +832,7 @@ m2122 -528 c67 -28 65 -2 65 -746 l0 -670 -480 0 -480 0 0 673 c0 517 3 678
                         </svg>
 
                     </div>
-                    <div class="photo card-article">
+                    <div class="photo card">
                         <span> Фото</span>
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                              width="50px" height="50px" viewBox="0 0 512.000000 512.000000"
@@ -886,97 +890,73 @@ l2125 -2 49 -24z"/>
                 </div>
             </div>
         </section>
-        <section id="contacts" class="articles-section section">
-            <h2 class="title-section ">
-
-                Связаться с нами
-            </h2>
-            <form id="contacts-form" class="contacts-form" method="POST" action="https://foma-blog.ru:8081/api/email"
+        <section id="contacts" class="contacts-section section">
+            <h2 class="title">Связаться с нами</h2>
+            <form id="contacts-form" class="form" method="POST" action="https://foma-blog.ru:8081/api/email"
                   name="contacts-form">
-                <div class="contacts-name__wrapper contacts-control__wrapper">
-                    <div class=" contacts-control contacts-name__group">
-                        <label class="contacts-control__label" for="contacts-name" minlength="3"
-                               maxlength="30">Имя</label>
-                        <input id="contacts-name" name="name" form="contacts-form" class="contacts-control__input"
-                               type="text"
-                               placeholder="Напишите своё имя..." required/>
-                    </div>
+                <div class=" control ">
+                    <label class="label" for="contacts-name" minlength="3"
+                           maxlength="30">Имя</label>
+                    <input id="contacts-name" name="name" form="contacts-form" class="input"
+                           type="text"
+                           placeholder="Напишите своё имя..." required/>
                 </div>
-                <div class="contacts-email__wrapper contacts-control__wrapper">
-                    <div class="contacts-control contacts-email__group">
-                        <label class="contacts-control__label" for="contacts-email">E-mail</label>
-                        <input id="contacts-email" name="email" form="contacts-form" required
-                               class="contacts-control__input" minlength="6" maxlength="50"
-                               type="email"
-                               placeholder="Напишите свой e-mail..."/>
-                    </div>
+                <div class="control ">
+                    <label class="label" for="contacts-email">E-mail</label>
+                    <input id="contacts-email" name="email" form="contacts-form" required
+                           class="input" minlength="6" maxlength="50"
+                           type="email"
+                           placeholder="Напишите свой e-mail..."/>
                 </div>
-                <div class="contacts-theme__wrapper contacts-control__wrapper">
-                    <div class="contacts-control contacts-theme__group">
-                        <!--                        <div class="control-bg"></div>-->
-                        <label class="contacts-control__label" for="contacts-theme">Тема</label>
-                        <select id="contacts-theme" name="subject" form="contacts-form" required
-                                class="contacts-select contacts-control__input">
-                            <option id="default" disabled value="" selected>Чем мы можем вам помочь?</option>
-                            <option id="buildWeb" value="Запрос на создание веб-приложения">Разработка веб-сайта
-                            </option>
-                            <option id="design/brand" value="Запрос на создание дизайна/бренда">Дизайн/брендинг</option>
-                            <option id="buildApp" value="Запрос на создание приложения">Создание приложения</option>
-                            <option id="consultation" value="Запрос на консультацию">Консультация</option>
-                            <option id="hi" value="hi">Просто хочу сказать «Привет!»</option>
-                        </select>
-                    </div>
+                <div class="control ">
+                    <label class="label" for="contacts-theme">Тема</label>
+                    <select id="contacts-theme" name="subject" form="contacts-form" required
+                            class="select input">
+                        <option id="default" disabled value="" selected>Чем мы можем вам помочь?</option>
+                        <option id="buildWeb" value="Запрос на создание веб-приложения">Разработка веб-сайта
+                        </option>
+                        <option id="design/brand" value="Запрос на создание дизайна/бренда">Дизайн/брендинг</option>
+                        <option id="buildApp" value="Запрос на создание приложения">Создание приложения</option>
+                        <option id="consultation" value="Запрос на консультацию">Консультация</option>
+                        <option id="hi" value="hi">Просто хочу сказать «Привет!»</option>
+                    </select>
                 </div>
-                <div class="contacts-question__wrapper contacts-control__wrapper">
-                    <div class="contacts-question__input contacts-control">
-                        <!--                        <div class="control-bg"></div>-->
-                        <label class=" contacts-control__label" for="contacts-question">Вопрос</label>
-                        <textarea id="contacts-question" name="text" form="contacts-form" required
-                                  class="contacts-textarea contacts-control__input"
-                                  minlength="10"
-                                  maxlength="1000" rows="10"
-                                  placeholder="Напишите нам вопрос, который вас заинтересовал..."></textarea>
-                    </div>
+                <div class=" control">
+                    <label class=" label" for="contacts-question">Вопрос</label>
+                    <textarea id="contacts-question" name="text" form="contacts-form" required
+                              class="textarea"
+                              minlength="10"
+                              maxlength="1000"
+                              rows="10"
+                              placeholder="Напишите нам вопрос, который вас заинтересовал..."></textarea>
                 </div>
-                <div class="contacts-actions__wrapper">
-                    <div class="contacts-actions">
-                        <button type="submit" class="contacts-actions__save-btn">Отправить
-                        </button>
-                        <div
-                                id='recaptcha'
-                                class="g-recaptcha"
-                                data-sitekey="6LfM5vscAAAAABiWY0hQLyg4KLvvcf-1EAZRWdY2"
-                                data-callback="captchaSubmit"
-                                data-size="invisible">
-                        </div>
+                <div class="actions">
+                    <button type="submit" class="contacts-actions__save-btn">Отправить
+                    </button>
+                    <div
+                            id='recaptcha'
+                            class="g-recaptcha"
+                            data-sitekey="6LfM5vscAAAAABiWY0hQLyg4KLvvcf-1EAZRWdY2"
+                            data-callback="captchaSubmit"
+                            data-size="invisible">
                     </div>
                 </div>
             </form>
         </section>
     </div>
     <footer class="footer">
-        <div class="footer-bg">
+        <div class="footer-rights">2022 — © Все права защищены.
 
-            <div class="footer-rights">2022 — © Все права защищены.
-
-                Копировать какие-либо материалы с ресурса запрещено. Делать это можно только с письменного разрешения
-                правообладателя
-                или со ссылкой на сайт-источник.
-            </div>
-            <div class="footer-nav__container">
-                <nav class="footer__nav">
-                    <ul class="footer__list">
-                        <li class="footer__item"><a href="#startPage" class="footer__link">Главная</a></li>
-                        <li class="footer__item"><a href="#aboutPage" class="footer__link">О нас</a></li>
-                        <li class="footer__item"><a href="#sectionsPage" class="footer__link">Разделы</a></li>
-                        <li class="footer__item"><a href="#productsPage" class="footer__link">Лавка</a></li>
-                        <li class="footer__item"><a href="#contactsPage" class="footer__link">Контакты</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="footer-fomka"></div>
-
+            Копировать какие-либо материалы с ресурса запрещено. Делать это можно только с письменного разрешения
+            правообладателя
+            или со ссылкой на сайт-источник.
         </div>
+        <nav class="nav">
+            <div class="nav-item"><a href="#home" class="footer__link">Главная</a></div>
+            <div class="nav-item"><a href="#about" class="footer__divnk">О нас</a></div>
+            <div class="nav-item"><a href="#articles" class="footer__divnk">Статьи</a></div>
+            <div class="nav-item"><a href="#contacts" class="footer__divnk">Контакты</a></div>
+        </nav>
     </footer>
 </main>
 

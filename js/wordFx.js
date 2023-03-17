@@ -45,7 +45,7 @@
             const w = randomBetween(0.05, e, 3);
             const h = randomBetween(0.05, e, 3);
             const x = randomBetween(window.outerWidth, window.outerWidth, 1);
-            const y = randomBetween(window.outerHeight / 2, window.outerHeight, 1);
+            const y = randomBetween(0, window.outerHeight, 1);
             const z = randomBetween(window.outerHeight / 2, window.outerHeight, 1);
             const s = randomBetween(0.05, e, 3);
             this.DOM.el.setAttribute('opacity', '0.1');
@@ -112,12 +112,12 @@
             this.DOM.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             this.DOM.svg.setAttribute('class', 'shapes');
             this.DOM.svg.setAttribute('width', `100%`);
-            this.DOM.svg.setAttribute('height', `4000px`);
+            this.DOM.svg.setAttribute('height', `600vh`);
             // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
             // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
             this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
             // this.DOM.svg.setAttribute('viewbox', `0 0 ${winsize.width} ${winsize.height}`);
-            const content = document.getElementsByClassName('content')[0]
+            const content = document.getElementsByClassName('container')[0]
 
             if (this.options.shapesOnTop) {
                 this.DOM.el.parentNode.insertBefore(this.DOM.svg, this.DOM.el.nextSibling);
