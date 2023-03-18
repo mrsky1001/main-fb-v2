@@ -133,7 +133,7 @@ main {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 25%;
+    height: 18%;
 
     opacity: 1;
 }
@@ -223,6 +223,10 @@ main {
     left: 0;
 }
 
+.start-section.section {
+    height: 25%;
+}
+
 .start-section > .title {
     font-size: 5em;
 }
@@ -274,9 +278,6 @@ main {
 
 /* ARTICLES-SECTION CLASSES */
 .articles-section {
-    display: flex;
-    justify-content: flex-start;
-
     background: #ffffff80;
     box-shadow: 200px -19px 200px 0px var(--color-bg);
 }
@@ -326,12 +327,18 @@ main {
 /* CONTACTS-SECTION CLASSES */
 
 .contacts-section {
-    display: flex;
-    justify-content: flex-start;
+    position: relative;
 
     background: var(--gray-color-bg);
     box-shadow: 200px -19px 200px 0px var(--color-bg);
+}
 
+.contacts-section.section {
+    max-height: 15%;
+}
+
+.contacts-section .title {
+    margin-bottom: 2%;
 }
 
 .contacts-section textarea, label, input, button {
@@ -381,34 +388,65 @@ main {
 }
 
 
-.contacts-section .socials {
+/* CONTACTS-SECTION CLASSES */
+
+.socials-section {
+    justify-content: space-evenly;
+
+    background: var(--gray-color-bg);
+    box-shadow: 200px -19px 200px 0px var(--color-bg);
+
+}
+
+.socials-section.section {
+    z-index: 2;
+
+    max-height: 5%;
+}
+
+.socials-section .btns {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 100%;
     height: 10%;
-    flex-direction: row;
+    max-width: 800px;
+}
+
+.socials-section .btns a {
+    display: flex;
     justify-content: center;
+    max-height: 60px;
+    width: 50px;
+    height: 50px;
+
+    border: 2px solid transparent;
 }
 
-.contacts-section .socials a {
-    color: var(--color-text);
-
+.socials-section .btns a > * {
+    width: 50px;
+    height: 50px;
 }
 
-.contacts-section .socials .instagram-btn {
+.socials-section .btns a:hover {
+    border: 2px solid var(--color-text);
+}
+
+.socials-section .btns .instagram-btn {
     background-image: url("../assets/icons/socials/instagram.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.contacts-section .socials .behance-btn {
+.socials-section .btns .behance-btn {
     background-image: url("../assets/icons/socials/behance.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.contacts-section .socials .telegram-btn {
+.socials-section .btns .telegram-btn {
     width: 40px !important;
     background-image: url("../assets/icons/socials/telegram.svg");
     background-size: contain;
@@ -416,7 +454,7 @@ main {
     background-position: center;
 }
 
-.contacts-section .socials .vk-btn {
+.socials-section .btns .vk-btn {
     width: 40px !important;
     background-image: url("../assets/icons/socials/vk.svg");
     background-size: contain;
@@ -424,7 +462,7 @@ main {
     background-position: center;
 }
 
-.contacts-section .socials .youtube-btn {
+.socials-section .btns .youtube-btn {
     background-image: url("../assets/icons/socials/youtube.svg");
     background-size: contain;
     background-repeat: no-repeat;

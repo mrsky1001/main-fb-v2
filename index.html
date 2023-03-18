@@ -19,6 +19,7 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+
 <nav class="navbar">
     <div class="nav-item">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -893,6 +894,26 @@ l2125 -2 49 -24z"/>
                 </div>
             </div>
         </section>
+        <section id="socials" class="socials-section section">
+            <h2 class="title">Мы в соцсетях</h2>
+            <div class="btns">
+                <a target="_blank" href="https://www.behance.net/foma_design">
+                    <div class="behance-btn"></div>
+                </a>
+                <a target="_blank" href="https://t.me/fomablog">
+                    <div class="telegram-btn"></div>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/foma.blog.ru/">
+                    <div class="instagram-btn"></div>
+                </a>
+                <a target="_blank" href="https://vk.com/fomablog">
+                    <div class="vk-btn"></div>
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UC_k_rdwbeDwf1KbMQmyK_pw/">
+                    <div class="youtube-btn"></div>
+                </a>
+            </div>
+        </section>
         <section id="contacts" class="contacts-section section">
             <h2 class="title">Связаться с нами</h2>
             <form id="contacts-form" class="form" method="POST" action="https://foma-blog.ru:8081/api/email"
@@ -902,14 +923,14 @@ l2125 -2 49 -24z"/>
                            maxlength="30">Имя</label>
                     <input id="contacts-name" name="name" form="contacts-form" class="input"
                            type="text"
-                           placeholder="Напишите своё имя..." required/>
+                           placeholder="Имя..." required/>
                 </div>
                 <div class="control ">
                     <label class="label" for="contacts-email">E-mail</label>
                     <input id="contacts-email" name="email" form="contacts-form" required
                            class="input" minlength="6" maxlength="50"
                            type="email"
-                           placeholder="Напишите свой e-mail..."/>
+                           placeholder="E-mail..."/>
                 </div>
                 <div class="control ">
                     <label class="label" for="contacts-theme">Тема</label>
@@ -945,24 +966,8 @@ l2125 -2 49 -24z"/>
                     </div>
                 </div>
             </form>
-            <div class="socials">
-                <a target="_blank" href="https://www.instagram.com/foma.blog.ru/">
-                    <div class="instagram-btn"></div>
-                </a>
-                <a target="_blank" href="https://www.behance.net/foma_design">
-                    <div class="behance-btn"></div>
-                </a>
-                <a target="_blank" href="https://t.me/fomablog">
-                    <div class="telegram-btn"></div>
-                </a>
-                <a target="_blank" href="https://vk.com/fomablog">
-                    <div class="vk-btn"></div>
-                </a>
-                <a target="_blank" href="https://www.youtube.com/channel/UC_k_rdwbeDwf1KbMQmyK_pw/">
-                    <div class="youtube-btn"></div>
-                </a>
-            </div>
         </section>
+
     </div>
     <footer class="footer">
         <div class="footer-rights">2022 — © Все права защищены.

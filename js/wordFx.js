@@ -112,7 +112,7 @@
             this.DOM.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             this.DOM.svg.setAttribute('class', 'shapes');
             this.DOM.svg.setAttribute('width', `100%`);
-            this.DOM.svg.setAttribute('height', `600vh`);
+            this.DOM.svg.setAttribute('height', `100vh`);
             // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
             // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
             this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
