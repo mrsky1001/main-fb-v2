@@ -40,29 +40,28 @@
         }
 
         configureShapeType() {
-            this.DOM.el.style.transformOrigin = `100px 100px`;
+            // this.DOM.el.style.transformOrigin = `100px 100px`;
             const e = window.outerWidth / 50
             const w = randomBetween(0.05, e, 3);
             const h = randomBetween(0.05, e, 3);
-            const x = randomBetween(window.outerWidth, window.outerWidth, 1);
-            const y = randomBetween(0, window.outerHeight, 1);
-            const z = randomBetween(window.outerHeight / 2, window.outerHeight, 1);
+            const x = randomBetween(0, window.outerWidth, 12);
+            const y = randomBetween(0, window.outerHeight * 8, 12);
+            const z = randomBetween(window.outerHeight / 2, window.outerHeight, 21);
             const s = randomBetween(0.05, e, 3);
             this.DOM.el.setAttribute('opacity', '0.1');
 
             if (this.type === 'circle') {
-                const r = 0.5 * s;
+                const r = s;
                 this.DOM.el.setAttribute('r', r);
                 this.DOM.el.setAttribute('cx', x);
                 this.DOM.el.setAttribute('cy', y);
             } else if (this.type === 'rect') {
                 this.DOM.el.setAttribute('width', w * 2);
-                this.DOM.el.setAttribute('height', h);
+                this.DOM.el.setAttribute('height', h * 2);
                 this.DOM.el.setAttribute('x', x);
                 this.DOM.el.setAttribute('y', y);
             } else if (this.type === 'polygon') {
-                const xx = x / 2
-                const d = 300
+                const xx = x * 1.2
                 this.DOM.el.setAttribute('points', `${xx} ${xx + s}, ${xx + s} ${xx}, ${xx - s} ${xx}`);
                 // this.DOM.el.setAttribute('obj-model', {obj: '/home/mrsky1001/devel/github/svelte_daisy_talwind/decorative-letter-animations/js/jj.obj'})
             }
@@ -112,7 +111,7 @@
             this.DOM.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             this.DOM.svg.setAttribute('class', 'shapes');
             this.DOM.svg.setAttribute('width', `100%`);
-            this.DOM.svg.setAttribute('height', `100vh`);
+            this.DOM.svg.setAttribute('height', `100%`);
             // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
             // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
             this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
@@ -156,7 +155,7 @@
 
                 this.rect = this.DOM.el.getBoundingClientRect();
                 this.shapes = [];
-                for (let i = 0; i <= 200 - 1; ++i) {
+                for (let i = 0; i <= 300 - 1; ++i) {
                     const shape = new Shape2('random', this.options);
                     this.shapes.push(shape);
                     this.DOM.svg.appendChild(shape.DOM.el);
