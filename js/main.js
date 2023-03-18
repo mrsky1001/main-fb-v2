@@ -165,4 +165,3 @@ const an = (name) => anime({
 //         animateArticleIcon(img.classList[0])
 //     }
 // })
-

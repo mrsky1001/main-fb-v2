@@ -10,7 +10,7 @@
     --color-link-hover: #fff473;
     --pink: #fd74ff;
     --blue: #3771fc;
-    --lite-purpure: #7c5ce4;
+    --lite-purpure: #d4cafa;
     --purpure: #542a95;
     --lite-blue: #acc7fe;
     --color-nav: #000000;
@@ -47,6 +47,40 @@ body {
 button {
     border-width: 1px;
     background: var(--color-bg);
+}
+
+/*MESSAGE CLASSES*/
+.info-msg-container {
+    width: 100%;
+    height: 100px;
+    color: var(--color-text);
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    background-color: var(--lite-purpure);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+}
+
+.info-msg-container__show {
+    display: flex;
+
+    opacity: 1;
+
+    animation: info-msg-show 500ms;
+}
+
+.info-msg-container__hide {
+    opacity: 0;
+
+    animation: info-msg-hide 500ms;
+}
+
+.grecaptcha-badge, .g-recaptcha {
+    opacity: 0 !important;
 }
 
 /*BODY CLASSES*/
@@ -344,6 +378,57 @@ main {
     display: flex;
     justify-content: end;
     padding: 3px;
+}
+
+
+.contacts-section .socials {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contacts-section .socials a {
+    color: var(--color-text);
+
+}
+
+.contacts-section .socials .instagram-btn {
+    background-image: url("../assets/icons/socials/instagram.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contacts-section .socials .behance-btn {
+    background-image: url("../assets/icons/socials/behance.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contacts-section .socials .telegram-btn {
+    width: 40px !important;
+    background-image: url("../assets/icons/socials/telegram.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contacts-section .socials .vk-btn {
+    width: 40px !important;
+    background-image: url("../assets/icons/socials/vk.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contacts-section .socials .youtube-btn {
+    background-image: url("../assets/icons/socials/youtube.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* KEYFRAMES */
