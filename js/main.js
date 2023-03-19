@@ -16,11 +16,16 @@ const effect = {
         return {
             shapesAnimationOpts: {
                 translateX: () => {
-                    let r = anime.random(200, 1070);
+                    let r = anime.random(200, 570);
                     return isUp ? '+=' + r : '+=-' + r
+                },
+                rotate: () => {
+                    let r = anime.random(-4, 4);
+                    return isUp ? '+=' + r : '+=' + r
                 },
                 duration: 5000,
                 easing: 'easeInOutSine',
+
             }
         }
     }, wave2: {
@@ -55,20 +60,26 @@ const effect = {
             easing: 'easeInOutExpo',
             opacity: [0, 1],
             translateY: ['-100%', '0%'],
-            rotate: () => [anime.random(-150, 250), 0]
+            // rotate: () => [anime.random(-150, 250), 0]
         }, shapesAnimationOpts: {
             duration: 3000,
             easing: 'easeOutExpo',
-            translateY: t => {
-                const ty = anime.random(300, 3000);
-                t.dataset.ty = ty;
-                return [anime.random(-200, 100), ty];
-            }, scale: t => {
-                const s = randomBetween(0, 1);
-                const s2 = randomBetween(0, 1);
-                t.dataset.s = s;
-                return [s, s2];
-            }, rotate: () => anime.random(-45, 45), opacity: {
+            translateX: t => [t.dataset.tx, anime.random(-250, 250)],
+            translateY: t => [t.dataset.ty, anime.random(-250, 250)],
+            scale: 1,
+            // translateY: t => {
+            //     const ty = anime.random(100, 300);
+            //     t.dataset.ty = ty;
+            //     return [anime.random(100, 600), ty];
+            // },
+            // }, scale: t => {
+            //     const s = randomBetween(0, 1);
+            //     const s2 = randomBetween(0, 1);
+            //     t.dataset.s = s;
+            //     return [s, s2];
+            // },
+            rotate: () => anime.random(-5, 6),
+            opacity: {
                 value: [0, 0.9], duration: 600, delay: 300, easing: 'linear'
             }
         }
@@ -190,3 +201,14 @@ navbar.onclick = () => {
         }, 1000)
     })
 }
+
+const circles = [...document.querySelectorAll('circle')]
+console.log(circles)
+//
+// window.onmousemove = (e) => {
+//     const [x, y] = [e.x, e.y]
+//     circles.forEach(item => {
+//         console.log(item.position, item.y)
+//         // item.x - e.x
+//     })
+// }
