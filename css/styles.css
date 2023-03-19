@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Finlandica:500|Josefin+Sans:700');
 
-/*GENERAL CLASSES*/
+/*GENERAL */
 
 :root {
     --color-text: #333333;
     --color-bg: #ffffff;
     --gray-color-bg: #ffffff80;
     --color-btn-border: #000000;
-    --color-link-hover: #fff473;
+    --color-link-hover: #fd74ff;
     --pink: #fd74ff;
     --blue: #3771fc;
     --lite-purpure: #d4cafa;
     --purpure: #542a95;
     --lite-blue: #acc7fe;
     --color-nav: #000000;
-    --font: "Josefin Sans", Finlandica, Tahoma, sans-serif;
+    --font: Finlandica, Tahoma, sans-serif;
 }
 
 html {
@@ -52,7 +52,20 @@ button {
     font-size: 24px;
 }
 
-/*MESSAGE CLASSES*/
+a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: 0.5s all;
+
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    transition: 0.5s all;
+
+}
+
+/*MESSAGE */
 .info-msg-container {
     width: 100%;
     height: 100px;
@@ -86,7 +99,7 @@ button {
     opacity: 0 !important;
 }
 
-/*BODY CLASSES*/
+/*BODY */
 
 main {
     position: relative;
@@ -113,18 +126,18 @@ main {
     transform: translateZ(0px);
 }
 
-/* SHAPES CLASSES */
+/* SHAPES  */
 .shapes {
     position: absolute;
     top: 0;
     left: -10%;
     z-index: -1;
     width: 120%;
-    height: 500%;
+    height: 525%;
     transform: translateZ(-40px);
 }
 
-/* SECTIONS CLASSES */
+/* SECTIONS  */
 .section {
     position: relative;
     top: 0;
@@ -194,7 +207,7 @@ main {
     font-size: 40px;
 }
 
-/* START-SECTION CLASSES */
+/* START-SECTION  */
 .navbar {
     position: fixed;
     top: 0;
@@ -202,7 +215,6 @@ main {
 
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-evenly;
     width: 100%;
     height: 100px;
@@ -211,9 +223,40 @@ main {
 }
 
 .navbar .nav-item {
+    width: 110px;
+    height: 80px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+
+    border-style: solid;
+    border-color: transparent;
+
+    padding-top: 10px;
+
+    transition: 0.3s border-color;
 }
 
-/* START-SECTION CLASSES */
+.navbar .nav-item:hover {
+    border-bottom-color: var(--pink);
+    border-right-color: var(--pink);
+    border-left-color: var(--pink);
+    color: var(--color-link-hover);
+
+    transition: 0.3s all;
+}
+
+
+.navbar .nav-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* START-SECTION  */
 
 .start-section {
     top: 0;
@@ -225,7 +268,8 @@ main {
 }
 
 .start-section > .title {
-    font-size: 7em;
+    font-family: "Josefin Sans", Tahoma, sans-serif;
+    font-size: 9em;
 }
 
 
@@ -234,7 +278,7 @@ main {
     animation: blink1 2s linear infinite;
 }
 
-/* ABOUT-SECTION CLASSES */
+/* ABOUT-SECTION  */
 .about-section {
     /*transform: skewY(5deg);*/
     box-shadow: 200px -19px 200px 0px var(--color-bg);
@@ -272,7 +316,7 @@ main {
     background-size: cover;
 }
 
-/* ARTICLES-SECTION CLASSES */
+/* ARTICLES-SECTION  */
 .articles-section {
     background: #ffffff80;
     box-shadow: 200px -19px 200px 0px var(--color-bg);
@@ -301,7 +345,13 @@ main {
     align-items: center;
     width: 400px;
     height: 600px;
-    border: 2px solid #333;
+    border: 3px solid transparent;
+
+    font-size: 24px;
+}
+
+.articles-section .card:hover {
+    border: 3px solid var(--pink);
 }
 
 .articles-section .cards .row {
@@ -318,7 +368,7 @@ main {
 .articles-section .card:hover {
 }
 
-/* CONTACTS-SECTION CLASSES */
+/* CONTACTS-SECTION  */
 
 .contacts-section {
     position: relative;
@@ -386,8 +436,20 @@ main {
     /* font-size: 24px; */
 }
 
+.contacts-section .form .actions button {
+    transition: 0.3s all;
+}
 
-/* CONTACTS-SECTION CLASSES */
+.contacts-section .form .actions button:hover {
+    cursor: pointer;
+    color: var(--pink);
+    border-color: var(--pink);
+
+    transition: 0.3s all;
+}
+
+
+/* CONTACTS-SECTION  */
 
 .socials-section {
     justify-content: space-evenly;
@@ -421,54 +483,124 @@ main {
     max-height: 70px;
     width: 70px;
     height: 70px;
+
     border: 3px solid transparent;
+    transition: 0.5s all;
 }
 
 .socials-section .btns a > * {
     width: 70px;
     height: 70px;
+
+    background-color: var(--color-text);
+    transition: 0.5s all;
 }
 
 .socials-section .btns a:hover {
-    border: 3px solid var(--color-text);
-    transition: 0.3s all;
+    border: 3px solid var(--pink);
+    transition: 0.5s all;
+
+}
+
+.socials-section .btns a:hover > * {
+    background-color: var(--pink);
+    transition: 0.5s all;
 }
 
 .socials-section .btns .instagram-btn {
-    background-image: url("../assets/icons/socials/instagram.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position-y: center;
+    -webkit-mask-repeat: no-repeat;
+
+    mask-image: url("../assets/icons/socials/instagram.svg");
+    -webkit-mask-image: url("../assets/icons/socials/instagram.svg");
 }
 
 .socials-section .btns .behance-btn {
-    background-image: url("../assets/icons/socials/behance.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position-y: center;
+    -webkit-mask-repeat: no-repeat;
+
+    mask-image: url("../assets/icons/socials/behance.svg");
+    -webkit-mask-image: url("../assets/icons/socials/behance.svg");
+
 }
 
 .socials-section .btns .telegram-btn {
-    width: 40px !important;
-    background-image: url("../assets/icons/socials/telegram.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 50px !important;
+
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position-y: center;
+    -webkit-mask-repeat: no-repeat;
+
+    mask-image: url("../assets/icons/socials/telegram.svg");
+    -webkit-mask-image: url("../assets/icons/socials/telegram.svg");
+
 }
 
 .socials-section .btns .vk-btn {
-    width: 40px !important;
-    background-image: url("../assets/icons/socials/vk.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    width: 50px !important;
+
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position-y: center;
+    -webkit-mask-repeat: no-repeat;
+
+
+    mask-image: url("../assets/icons/socials/vk.svg");
+    -webkit-mask-image: url("../assets/icons/socials/vk.svg");
+
+    background-color: var(--color-text);
 }
 
 .socials-section .btns .youtube-btn {
-    background-image: url("../assets/icons/socials/youtube.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position-y: center;
+    -webkit-mask-repeat: no-repeat;
+
+    mask-image: url("../assets/icons/socials/youtube.svg");
+    -webkit-mask-image: url("../assets/icons/socials/youtube.svg");
+}
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    background: var(--color-bg);
+    z-index: 16;
+}
+
+.footer .logo {
+    width: 70px;
+    height: 70px;
+
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    background-image: url("../assets/icons/safari-pinned-tab.svg");
+}
+
+.footer .rights {
+    max-width: 500px;
+}
+
+.footer .nav {
+
+}
+
+.footer .nav .nav-item {
+
 }
 
 /* KEYFRAMES */
