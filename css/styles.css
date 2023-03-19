@@ -293,7 +293,7 @@ main {
     align-content: center;
     justify-content: space-between;
     flex-direction: column;
-    width: 80%;
+    /* width: 80%;*/
     height: 60%;
     /* transform: translateZ(-20px); */
 }
@@ -327,6 +327,7 @@ main {
     display: flex;
     align-items: center;
     height: 20%;
+    max-width: 70%;
 }
 
 
@@ -356,7 +357,7 @@ main {
 
 .articles-section .cards .row {
     justify-content: space-around;
-    margin: 50px 0;
+    /*margin: 50px 0;*/
 }
 
 
@@ -635,8 +636,55 @@ main {
     }
 }
 
+@media screen and (max-width: 1900px) {
+    .about-section, .articles-section, .socials-section, .contacts-section {
+        transform: scale(.8);
+    }
+
+    /*.section .title {*/
+    /*    font-size: 4em;*/
+    /*}*/
+    /*.section .description {*/
+    /*    font-size: 30px;*/
+    /*}*/
+    .start-section .title {
+        font-size: 6em;
+    }
+
+
+    .articles-section .description {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .start-section .title {
+        font-size: 6em;
+    }
+
+    .articles-section .cards {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .description {
+
+    }
+
+    .section {
+        height: unset;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
+
+
 @media screen and (max-width: 40em) {
     .slide .title {
         font-size: 2em;
     }
 }
+

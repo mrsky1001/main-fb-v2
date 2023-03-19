@@ -142,6 +142,7 @@ Array.from(document.querySelectorAll('.cards > .row > a, .nav-item > a')).forEac
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: 'easeInOutSine',
             stroke: "#fd74ff",
+            fill: "#fd74ff",
             duration: 500,
             delay: function (el, i) {
                 return i * 250
@@ -155,6 +156,7 @@ Array.from(document.querySelectorAll('.cards > .row > a, .nav-item > a')).forEac
             strokeDashoffset: [anime.setDashoffset, 0],
             easing: 'easeInOutSine',
             stroke: "#333",
+            fill: "#333",
             duration: 500,
             delay: function (el, i) {
                 return i * 250
