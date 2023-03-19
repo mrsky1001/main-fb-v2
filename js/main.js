@@ -164,3 +164,29 @@ Array.from(document.querySelectorAll('.cards > .row > a, .nav-item > a')).forEac
         })
     }
 })
+
+const barsBtn = document.getElementById('bars-btn')
+const navbar = document.getElementById('navbar')
+
+barsBtn.onclick = () => {
+    navbar.classList.add('show');
+    anime({
+        targets: '.navbar',
+        opacity: 1,
+        easing: 'easeInOutSine',
+        duration: 200,
+    })
+}
+
+navbar.onclick = () => {
+    anime({
+        targets: '.navbar',
+        opacity: 0,
+        easing: 'easeInOutSine',
+        duration: 500,
+    }).finished.then(() => {
+        setTimeout(() => {
+            navbar.classList.remove('show');
+        }, 1000)
+    })
+}
