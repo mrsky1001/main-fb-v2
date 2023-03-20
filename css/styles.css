@@ -623,7 +623,6 @@ main {
     justify-content: space-around;
     align-items: center;
     height: 300px;
-    background: var(--color-bg);
     z-index: 16;
 }
 

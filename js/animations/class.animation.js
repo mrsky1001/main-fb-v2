@@ -44,9 +44,11 @@
             // this.DOM.el.style.transformOrigin = `100px 100px`;
             const maxH = document.body.getElementsByTagName('main')[0].scrollHeight
             const e = 40
+
+            console.log()
             const w = randomBetween(0.05, e, 3);
             const h = randomBetween(0.05, e, 3);
-            const x = randomBetween(window.innerWidth, window.innerWidth / 2, 1);
+            const x = randomBetween(document.body.offsetWidth / 2, document.body.offsetWidth, 1);
             const y = randomBetween(0, maxH, 1);
             const s = randomBetween(0.5, e, 1);
             this.DOM.el.setAttribute('opacity', '0.1');
