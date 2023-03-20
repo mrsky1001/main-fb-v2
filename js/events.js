@@ -2,7 +2,7 @@ function elementInViewport(el, upM = 8, downM = 2) {
     const bounds = el.getBoundingClientRect();
 
     return (
-        (bounds.top * upM + window.innerHeight > 0) &&
+        (bounds.top + window.innerHeight * upM > 0) &&
         (window.innerHeight - bounds.top * downM > 0)
     );
 }
@@ -13,7 +13,7 @@ document.getElementsByTagName('main')[0].addEventListener("scroll", (e) => {
         const els = document.querySelectorAll(".card");
 
         els.forEach(el => {
-            const inViewport = elementInViewport(el);
+            const inViewport = elementInViewport(el, -0.1);
             const targets = el.querySelectorAll('.path')
 
             if (inViewport) {
@@ -29,11 +29,11 @@ document.getElementsByTagName('main')[0].addEventListener("scroll", (e) => {
         const articles = document.getElementById("articles");
         const navbar = document.getElementById("navbar");
 
-        const inViewport = elementInViewport(articles, 1, 1);
+        const inViewport = elementInViewport(articles, 1, 2);
         if (inViewport) {
             anime(animationConfig.hideEL(navbar).opts)
         } else {
-            anime(animationConfig.showEL(navbar, 800).opts)
+            anime(animationConfig.showEL(navbar).opts)
         }
     }
 })
