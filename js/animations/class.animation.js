@@ -78,37 +78,36 @@
     }
 
 
-    class Word {
-        constructor(el, options) {
-            this.DOM = {shapes: []};
-            this.options = {
-                shapesOnTop: false
-            }
+    class Animation {
+        constructor(el, options, config) {
+            this.DOM = {};
+            this.options = {};
+
+            this.animeStack = [];
+
             Object.assign(this.options, options);
-            this.init(el);
-            // this.initEvents();
+            this.init(el, config);
         }
 
-        init(el) {
+        init(el, config) {
             this.DOM.el = el;
-            Array.from(document.getElementsByClassName('shapes')).forEach(e => e.remove())
-
             this.createSVG();
-            this.letters = [];
-            // Array.from(this.DOM.el.querySelectorAll('span')).forEach(letter => this.letters.push(new Letter(letter, this.DOM.svg, this.options)));
-        }
 
-        // initEvents() {
-        //     window.addEventListener('resize', debounce(() => {
-        //         winsize = {width: window.innerWidth, height: window.innerHeight};
-        //         // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
-        //         // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
-        //         // this.DOM.svg.setAttribute('viewbox', `0 0 ${winsize.width} ${winsize.height}`);
-        //         this.DOM.svg.setAttribute('width', `100%`);
-        //         this.DOM.svg.setAttribute('height', `100%`);
-        //         this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
-        //     }, 20));
-        // }
+            this.letters = Array.from(this.DOM.el.querySelectorAll('span'))
+            config.lettersAnimationOpts.targets = this.letters
+            anime(config.lettersAnimationOpts);
+
+            this.rect = this.DOM.el.getBoundingClientRect();
+            this.shapes = [];
+            for (let i = 0; i <= 150 - 1; ++i) {
+                const shape = new Shape2('random', this.options);
+                this.shapes.push(shape);
+                this.DOM.svg.appendChild(shape.DOM.el);
+            }
+
+            config.opts.targets = this.shapes.map(shape => shape.DOM.el);
+            anime(config.opts)
+        }
 
         createSVG() {
             this.DOM.svg = null
@@ -117,17 +116,10 @@
             this.DOM.svg.setAttribute('class', 'shapes');
             this.DOM.svg.setAttribute('width', `100%`);
             this.DOM.svg.setAttribute('height', `100%`);
-            // this.DOM.svg.setAttribute('width', `${winsize.width}px`);
-            // this.DOM.svg.setAttribute('height', `${winsize.width}px`);
             this.DOM.svg.setAttribute('viewbox', `0 0 100% 100%`);
-            // this.DOM.svg.setAttribute('viewbox', `0 0 ${winsize.width} ${winsize.height}`);
             const content = document.getElementsByClassName('container')[0]
 
-            if (this.options.shapesOnTop) {
-                this.DOM.el.parentNode.insertBefore(this.DOM.svg, this.DOM.el.nextSibling);
-            } else {
-                content.insertBefore(this.DOM.svg, content.firstChild);
-            }
+            content.insertBefore(this.DOM.svg, content.firstChild);
         }
 
         show(config) {
@@ -139,41 +131,33 @@
         }
 
         animate(config, shapes, isForceAnimate) {
-            if (!this.isAnimate || isForceAnimate) {
-                this.isAnimate = true
-
-                config.shapesAnimationOpts.targets = shapes ?? this.shapes.map(shape => shape.DOM.el);
-
-                anime(config.shapesAnimationOpts).finished.then(() => {
-                    this.isAnimate = false
-                });
-            }
-        }
-
-        toggle(action = 'show', config) {
             if (!this.isAnimate) {
                 this.isAnimate = true
 
-                this.letters = Array.from(this.DOM.el.querySelectorAll('span'))
-                config.lettersAnimationOpts.targets = this.letters
-                anime(config.lettersAnimationOpts);
+                config.opts.targets = shapes ?? this.shapes.map(shape => shape.DOM.el);
 
-                this.rect = this.DOM.el.getBoundingClientRect();
-                this.shapes = [];
-                for (let i = 0; i <= 150 - 1; ++i) {
-                    const shape = new Shape2('random', this.options);
-                    this.shapes.push(shape);
-                    this.DOM.svg.appendChild(shape.DOM.el);
-                }
+                this.animeStack.forEach(a => {
+                    a.pause()
+                })
 
-                config.shapesAnimationOpts.targets = this.shapes.map(shape => shape.DOM.el);
-                anime(config.shapesAnimationOpts).finished.then(() => {
+                const animation = anime(config.opts)
+                animation.name = config.name
+
+                if (!this.animeStack.find(a => a.name === animation.name))
+                    this.animeStack.push(animation)
+
+                animation.finished.then(() => {
                     this.isAnimate = false
 
+                    const idx = this.animeStack.findIndex(a => a.name === config.name)
+                    this.animeStack.splice(idx, 1)
                 });
+
             }
         }
     }
 
-    window.Word = Word;
+
+    const el = document.querySelector('.start-section .title')
+    window.Animation = new Animation(el, animationConfig.options, animationConfig.showShapes);
 }

@@ -8,6 +8,8 @@
     --gray-color-bg: #ffffff80;
     --color-btn-border: #000000;
     --color-link-hover: #fd74ff;
+    --border-color: #666;
+    --border-color-hover: #fd74ff;
     --pink: #fd74ff;
     --blue: #3771fc;
     --lite-purpure: #d4cafa;
@@ -131,12 +133,12 @@ main {
 /* SHAPES  */
 .shapes {
     position: absolute;
-    top: 0;
-    left: -10%;
+    top: -35%;
+    left: -40%;
     z-index: -1;
-    width: 120%;
+    width: 180%;
     height: 525%;
-    transform: translateZ(-40px);
+    transform: translateZ(-150px);
 }
 
 /* SECTIONS  */
@@ -241,9 +243,9 @@ main {
 }
 
 .navbar .nav-item:hover {
-    border-bottom-color: var(--pink);
-    border-right-color: var(--pink);
-    border-left-color: var(--pink);
+    border-bottom-color: var(--border-color-hover);
+    border-right-color: var(--border-color-hover);
+    border-left-color: var(--border-color-hover);
     color: var(--color-link-hover);
 
     transition: 0.3s all;
@@ -388,7 +390,7 @@ main {
 }
 
 .articles-section .card:hover {
-    border: 3px solid var(--pink);
+    border: 3px solid var(--border-color-hover);
 }
 
 .articles-section .cards .row {
@@ -452,6 +454,7 @@ main {
 .contacts-section .form .control .input, .textarea {
     padding: 5px;
     border: 3px solid #666;
+    background-color: white;
     outline: none;
     font-size: 24px;
 }
@@ -480,7 +483,7 @@ main {
 .contacts-section .form .actions button:hover {
     cursor: pointer;
     color: var(--pink);
-    border-color: var(--pink);
+    border-color: var(--border-color-hover);
 
     transition: 0.3s all;
 }
@@ -535,13 +538,13 @@ main {
 }
 
 .socials-section .btns a:hover {
-    border: 3px solid var(--pink);
+    border: 3px solid var(--border-color-hover);
     transition: 0.3s all;
 
 }
 
 .socials-section .btns a:hover > * {
-    background-color: var(--pink);
+    background-color: var(--border-color-hover);
     transition: 0.3s all;
 }
 
@@ -772,6 +775,15 @@ main {
         opacity: 0;
         transition: 0.3s all;
 
+    }
+
+    .navbar .nav-item {
+        width: 100%;
+        border-top: 3px solid transparent;
+    }
+
+    .navbar .nav-item:hover {
+        border-top: 3px solid var(--border-color-hover);
     }
 
     .navbar.show {
