@@ -1,14 +1,15 @@
-function elementInViewport(el) {
+function elementInViewport(el, upM = 8, downM = 2) {
     const bounds = el.getBoundingClientRect();
+
     return (
-        (bounds.top * 8 - window.innerHeight > 0) &&
-        (window.innerHeight - bounds.top * 2 > 0)
+        (bounds.top * upM + window.innerHeight > 0) &&
+        (window.innerHeight - bounds.top * downM > 0)
     );
 }
 
 
-if (window.innerWidth < 801)
-    document.getElementsByTagName('main')[0].addEventListener("scroll", (e) => {
+document.getElementsByTagName('main')[0].addEventListener("scroll", (e) => {
+    if (window.innerWidth < 801) {
         const els = document.querySelectorAll(".card");
 
         els.forEach(el => {
@@ -24,4 +25,15 @@ if (window.innerWidth < 801)
                 anime(animationConfig.offHoverSVG(targets).opts)
             }
         })
-    })
+    } else {
+        const articles = document.getElementById("articles");
+        const navbar = document.getElementById("navbar");
+
+        const inViewport = elementInViewport(articles, 1, 1);
+        if (inViewport) {
+            anime(animationConfig.hideEL(navbar).opts)
+        } else {
+            anime(animationConfig.showEL(navbar, 800).opts)
+        }
+    }
+})
