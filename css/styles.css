@@ -763,14 +763,6 @@ main {
         visibility: visible;
     }
 
-    .section .title {
-        font-size: 3em;
-    }
-
-    .start-section .title {
-        font-size: 4em;
-    }
-
     .navbar {
         height: 100%;
         align-items: center;
@@ -798,6 +790,15 @@ main {
     .navbar .logo {
         order: 1;
     }
+
+    .section .title {
+        font-size: 3em;
+    }
+
+    .start-section .title {
+        font-size: 4em;
+    }
+
 
     .about-section .img {
         width: 60%;
@@ -854,18 +855,22 @@ main {
         font-size: 20px;
     }
 
-    .articles-section .description {
-        font-size: 20px;
-    }
 
     .about-section .img.head-img, .about-section .img.last-img {
-        /*background-position-x: -70px;*/
         width: 80%;
     }
 
     .about-section .img {
         width: 60%;
         height: 150px;
+    }
+
+    .articles-section .description {
+        font-size: 20px;
+    }
+
+    .articles-section .card {
+        height: 300px;
     }
 
     .contacts-section .form {
@@ -885,7 +890,6 @@ main {
         flex-direction: column;
         justify-content: start;
         height: unset;
-
     }
 
     .socials-section .btns a {
