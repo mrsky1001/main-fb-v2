@@ -65,7 +65,7 @@
                 const xx = y * 0.7
                 const ss1 = s * 0.5
                 const ss2 = r * s * 0.9
-                console.log(ss2, r)
+
                 this.DOM.el.setAttribute('points', `${xx} ${xx - ss1}, ${xx + ss1} ${xx}, ${xx - ss2} ${xx}`);
                 // this.DOM.el.setAttribute('obj-model', {obj: '/home/mrsky1001/devel/github/svelte_daisy_talwind/decorative-letter-animations/js/jj.obj'})
             }
@@ -138,8 +138,8 @@
             return this.toggle('hide', config);
         }
 
-        animate(config, shapes) {
-            if (!this.isAnimate) {
+        animate(config, shapes, isForceAnimate) {
+            if (!this.isAnimate || isForceAnimate) {
                 this.isAnimate = true
 
                 config.shapesAnimationOpts.targets = shapes ?? this.shapes.map(shape => shape.DOM.el);

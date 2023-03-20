@@ -6,16 +6,27 @@ const effect = {
         totalShapes: 3
     }, wave: {
         shapesAnimationOpts: {
-            translateX: function () {
-                return anime.random(0, 270);
+            // translateX: () => {
+            //     let r = anime.random(200, 570);
+            //     return isUp ? '+=' + r : '+=-' + r
+            // },
+            rotate: () => {
+                let r = anime.random(-4, 4);
+                return '+=' + r
             },
-            easing: 'easeInOutQuad',
-            duration: 750,
+            direction: 'alternate',
+            loop: true,
+            duration: 5000,
+            easing: 'easeInOutSine',
+
         }
     }, moveRandom: (isUp) => {
         return {
             shapesAnimationOpts: {
                 translateX: () => {
+                    let r = anime.random(200, 570);
+                    return isUp ? '+=' + r : '+=-' + r
+                }, translateY: () => {
                     let r = anime.random(200, 570);
                     return isUp ? '+=' + r : '+=-' + r
                 },
@@ -134,14 +145,16 @@ document.getElementsByClassName('shapes')[0].addEventListener('click', () => {
 
 let layerY = window.layerY
 
+
+//nee add stop before
 window.addEventListener('wheel', (e) => {
     if (e.layerY !== layerY) {
         layerY = e.layerY
 
         if (e.deltaY > 0)
-            site.word.animate(effect.moveRandom(true))
+            site.word.animate(effect.moveRandom(true), undefined, true)
         else
-            site.word.animate(effect.moveRandom(false))
+            site.word.animate(effect.moveRandom(false), undefined, true)
     }
 
 })
@@ -202,8 +215,12 @@ navbar.onclick = () => {
     })
 }
 
-const circles = [...document.querySelectorAll('circle')]
-console.log(circles)
+// const circles = [...document.querySelectorAll('circle')]
+// console.log(circles)
+
+setTimeout(() => {
+    site.word.animate(effect.wave)
+}, 4000)
 //
 // window.onmousemove = (e) => {
 //     const [x, y] = [e.x, e.y]
