@@ -783,7 +783,6 @@ main {
     }
 
     .navbar .nav-item {
-        width: 100%;
         border-top: 3px solid transparent;
     }
 
@@ -822,6 +821,14 @@ main {
 
 
 @media screen and (max-width: 600px) {
+    .navbar {
+        height: 90%;
+    }
+
+    .navbar .nav-item {
+        padding: 0;
+    }
+
     .parallax-front {
         height: 600%;
     }
