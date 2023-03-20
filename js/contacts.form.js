@@ -18,6 +18,7 @@ function recaptchaSubmit(token) {
 
     request.onload = () => {
         const res = JSON.parse(request.response)
+        console.log(res)
         msgEl.innerText = res.message ? res.message : res
 
         msgContainerEl.classList.remove('info-msg-container__hide')
@@ -46,6 +47,7 @@ function recaptchaSubmit(token) {
 
 
 document.getElementById('contacts-form').addEventListener('submit', (e) => {
+    console.log('sasda')
     grecaptcha.execute().then().catch(() => {
         msgEl.innerText = 'Ошибка отправки заявки! Повторите попытку позже :) \n \n Или напишите нам на почту foma.blog@yandex.ru'
         msgContainerEl.classList.add('info-msg-container__show')

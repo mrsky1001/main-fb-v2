@@ -46,7 +46,7 @@
             const e = 40
             const w = randomBetween(0.05, e, 3);
             const h = randomBetween(0.05, e, 3);
-            const x = randomBetween(1000, window.outerWidth, 1);
+            const x = randomBetween(window.innerWidth, window.innerWidth / 2, 1);
             const y = randomBetween(0, maxH, 1);
             const s = randomBetween(0.5, e, 1);
             this.DOM.el.setAttribute('opacity', '0.1');

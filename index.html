@@ -20,7 +20,10 @@
 </head>
 <body>
 
-<nav class="short-navbar">
+<div id="info-msg-container" class="info-msg-container">
+    <div id="info-msg" class="info-message">Напиши нам на почту foma.blog@yandex.ru</div>
+</div>
+<nav id="shortNav" class="short-navbar">
     <div class="nav-item">
     </div>
     <div class="nav-item logo">
@@ -511,7 +514,7 @@ l2125 -2 49 -24z"/>
     </div>
 </nav>
 <main class="container parallax-container">
-    <div class="parallax-front ">
+    <div id="parallaxFront" class="parallax-front ">
         <section id="home" class="start-section section">
             <h2 class="title">FOMA-BLOG<span>_</span></h2>
         </section>
@@ -985,7 +988,7 @@ l2125 -2 49 -24z"/>
                            maxlength="30">Имя</label>
                     <input id="contacts-name" name="name" form="contacts-form" class="input"
                            type="text"
-                           placeholder="Представьтесь..." required/>
+                           placeholder="Имя..." required/>
                 </div>
                 <div class="control ">
                     <label class="label" for="contacts-email">E-mail</label>
@@ -1017,8 +1020,7 @@ l2125 -2 49 -24z"/>
                               placeholder="Напишите нам вопрос, который вас заинтересовал..."></textarea>
                 </div>
                 <div class="actions">
-                    <button type="submit" class="contacts-actions__save-btn">Отправить
-                    </button>
+                    <button type="submit" class="contacts-actions__save-btn">Отправить</button>
                     <div
                             id='recaptcha'
                             class="g-recaptcha"
@@ -1070,9 +1072,6 @@ l2125 -2 49 -24z"/>
         </footer>
     </div>
 
-    <div id="info-msg-container" class="info-msg-container">
-        <div id="info-msg" class="info-message">Напиши нам на почту foma.blog@yandex.ru</div>
-    </div>
 </main>
 <script src="js/charming.min.js"></script>
 <script src="js/anime.min.js"></script>
@@ -1083,7 +1082,6 @@ l2125 -2 49 -24z"/>
 <script src="js/animations/bg.animation.js"></script>
 <script src="js/animations/icons.animation.js"></script>
 <script src="js/animations/navbar.animation.js"></script>
-<!--<script src="js/main.js"></script>-->
 <script src="js/events.js"></script>
 </body>
 </html>
