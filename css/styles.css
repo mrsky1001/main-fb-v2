@@ -714,8 +714,14 @@ main {
 }
 
 @media screen and (max-width: 1300px) {
+    .navbar {
+        transform: scale(0.8);
+        top: -10px;
+    }
+
     .section {
         height: unset;
+        padding: 50px 0;
     }
 
     .row {
@@ -729,6 +735,11 @@ main {
 
     .start-section .title {
         font-size: 5em;
+    }
+
+    .contacts-section.section {
+        max-height: unset;
+        height: unset;
     }
 
     .about-section .description {
