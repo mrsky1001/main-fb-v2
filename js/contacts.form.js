@@ -25,7 +25,7 @@ function recaptchaSubmit(token) {
         msgContainerEl.classList.add('info-msg-container__show')
 
         resetInfoOpacity()
-        document.getElementById('contacts-form').reset()
+        document.getElementById('registration-form').reset()
     }
 
     request.onerror = () => {
@@ -37,7 +37,7 @@ function recaptchaSubmit(token) {
 
     const obj = {responseKey: token}
 
-    for (var [key, value] of new FormData(document.getElementById('contacts-form')).entries()) {
+    for (var [key, value] of new FormData(document.getElementById('registration-form')).entries()) {
         obj[key] = value
     }
 
@@ -46,7 +46,7 @@ function recaptchaSubmit(token) {
 }
 
 
-document.getElementById('contacts-form').addEventListener('submit', (e) => {
+document.getElementById('registration-form').addEventListener('submit', (e) => {
     console.log('sasda')
     grecaptcha.execute().then().catch(() => {
         msgEl.innerText = 'Ошибка отправки заявки! Повторите попытку позже :) \n \n Или напишите нам на почту foma.blog@yandex.ru'
