@@ -1,4 +1,4 @@
-Array.from(document.querySelectorAll('.cards > .row > a, .nav-item > a')).forEach(img => {
+Array.from(document.querySelectorAll('.cards > .row > a, .NavItem > a')).forEach(img => {
     const targets = img.querySelectorAll('.path')
 
     img.onmouseenter = () => {
