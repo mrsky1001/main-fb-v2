@@ -140,7 +140,7 @@ main {
     left: -40%;
     z-index: -1;
     width: 180%;
-    height: 525%;
+    height: 600%;
     transform: translateZ(-150px);
 }
 
