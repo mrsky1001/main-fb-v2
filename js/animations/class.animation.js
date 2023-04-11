@@ -95,7 +95,7 @@
             this.DOM.el = el;
             this.createSVG();
 
-            this.letters = Array.from(this.DOM.el.querySelectorAll('span'))
+            this.letters = [...(this.DOM.el.querySelectorAll('span'))]
             config.lettersAnimationOpts.targets = this.letters
             anime(config.lettersAnimationOpts);
 
