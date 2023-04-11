@@ -69,7 +69,7 @@
                 const ss2 = r * s * 0.9
 
                 this.DOM.el.setAttribute('points', `${xx} ${xx - ss1}, ${xx + ss1} ${xx}, ${xx - ss2} ${xx}`);
-                // this.DOM.el.setAttribute('obj-model', {obj: '/home/mrsky1001/devel/github/fb-projects-v2/decorative-letter-animations/js/jj.obj'})
+                // this.DOM.el.setAttribute('obj-model', {obj: '/start/mrsky1001/devel/github/fb-projects-v2/decorative-letter-animations/js/jj.obj'})
             }
         }
 
