@@ -137,6 +137,7 @@ a:hover {
     cursor: pointer;
     border: 3px solid transparent;
     display: flex;
+    padding: 10px;
     opacity: 0;
 }
 
