@@ -124,7 +124,7 @@ a:hover {
 /*BODY */
 
 .theme-container{
-    z-index: 2;
+    z-index: 3;
     position: sticky;
     top: 100px;
 
