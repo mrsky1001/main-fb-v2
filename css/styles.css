@@ -136,6 +136,13 @@ a:hover {
 .theme-btn{
     cursor: pointer;
     border: 3px solid transparent;
+    display: flex;
+    opacity: 0;
+}
+
+.theme-btn.show {
+    opacity: 1;
+    transition: 8s opacity;
 }
 
 main {
