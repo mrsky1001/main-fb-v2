@@ -4,7 +4,7 @@
     "build": "parcel build index.html"
   },
   "devDependencies": {
-    "@parcel/packager-raw-url": "2.7.0",
-    "@parcel/transformer-webmanifest": "2.7.0"
+    "@parcel/packager-raw-url": "2.8.3",
+    "@parcel/transformer-webmanifest": "2.8.3"
   }
 }

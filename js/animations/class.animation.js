@@ -45,7 +45,6 @@
             const maxH = document.body.getElementsByTagName('main')[0].scrollHeight
             const e = 40
 
-            console.log()
             const w = randomBetween(0.05, e, 3);
             const h = randomBetween(0.05, e, 3);
             const x = randomBetween(document.body.offsetWidth / 2, document.body.offsetWidth, 1);

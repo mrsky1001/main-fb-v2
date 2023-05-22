@@ -35,18 +35,25 @@ const animationConfig = {
                 return i * 250
             },
         }
-    }), offHoverSVG: (targets) => ({
-        name: 'offHoverSVG',
+    }), offHoverSVG: (targets, fill = "#333", stroke = "#333") => ({
+        name: "offHoverSVG",
         opts: {
             targets: targets,
-            strokeDashoffset: [anime.setDashoffset, 0],
-            easing: 'easeInOutSine',
-            stroke: "#333",
-            fill: "#333",
+            strokeDashoffset: [
+                anime.setDashoffset,
+                0
+            ],
+            easing: "easeInOutSine",
+            stroke: function (el, i) {
+                return el.getAttribute('stroke-off') ?? stroke
+            },
+            fill: function (el, i) {
+                return el.getAttribute('fill-off') ?? fill
+            },
             duration: 500,
             delay: function (el, i) {
-                return i * 250
-            },
+                return i * 250;
+            }
         }
     }),
     wave: {

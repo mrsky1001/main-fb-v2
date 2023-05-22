@@ -19,6 +19,24 @@
     --font: Finlandica, Tahoma, sans-serif;
 }
 
+:root[theme='dark'] {
+    --color-text: #fff;
+    --color-bg: #00000f;
+    --gray-color-bg: transparent;
+    --color-btn-border: #fff;
+    --color-link-hover: #fd74ff;
+    --border-color: #fff;
+    --border-color-hover: #fd74ff;
+    --pink: #fd74ff;
+    --blue: #3771fc;
+    --lite-purpure: #d4cafa;
+    --purpure: #542a95;
+    --lite-blue: #acc7fe;
+    --color-nav: #000000;
+    --font: Finlandica, Tahoma, sans-serif;
+    --color-filter:    invert(1);
+}
+
 html {
     font-family: var(--font);
     -ms-text-size-adjust: 100%;
@@ -104,6 +122,21 @@ a:hover {
 }
 
 /*BODY */
+
+.theme-container{
+    z-index: 2;
+    position: sticky;
+    top: 100px;
+
+    display: flex;
+    justify-content: right;
+    padding: 0 50px 0 0;
+}
+
+.theme-btn{
+    cursor: pointer;
+    border: 3px solid transparent;
+}
 
 main {
     position: relative;
@@ -361,7 +394,7 @@ main {
 
 /* ARTICLES-SECTION  */
 .articles-section {
-    background: #ffffff80;
+    background: var(--gray-color-bg);
 }
 
 
@@ -393,7 +426,9 @@ main {
     font-size: 24px;
 }
 
-.articles-section .card:hover, .card-hover {
+
+
+.articles-section .card:hover, .card-hover, .theme-btn:hover {
     border: 3px solid var(--border-color-hover) !important;
     color: var(--color-link-hover);
 }
@@ -634,6 +669,8 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../assets/icons/safari-pinned-tab.svg");
+
+    filter: var(--color-filter);
 }
 
 .footer .rights {
