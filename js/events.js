@@ -78,6 +78,7 @@ function setTheme(theme) {
         pathEl.setAttribute('stroke-off', fill)
 
         document.documentElement.setAttribute('theme', 'dark');
+        document.querySelector('.start-section .title span:last-child').classList.add('dark');
     } else {
         const fill ='#333'
         const fillBtn =' rgba(51, 51, 51, 0.5)'
@@ -95,6 +96,7 @@ function setTheme(theme) {
 
 
         document.documentElement.removeAttribute('theme');
+        document.querySelector('.start-section .title span:last-child').classList.remove('dark');
     }
 
 }
