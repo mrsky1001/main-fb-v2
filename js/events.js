@@ -79,7 +79,7 @@ function setTheme(theme) {
 
         document.documentElement.setAttribute('theme', 'dark');
         document.querySelector('.start-section .title span:last-child').classList.add('dark');
-        document.querySelectorAll('.logo .main svg .path').forEach(el=> el.setAttribute( 'fill', fill))
+        document.querySelectorAll(' .path').forEach(el=> el.setAttribute( 'fill', fill))
         document.querySelector('#bars-btn > svg').setAttribute('fill', fill)
     } else {
         const fill ='#333'
@@ -99,7 +99,7 @@ function setTheme(theme) {
 
         document.documentElement.removeAttribute('theme');
         document.querySelector('.start-section .title span:last-child').classList.remove('dark');
-        document.querySelectorAll('.logo .main svg .path').forEach(el=> el.setAttribute( 'fill', fill))
+        document.querySelectorAll(' .path').forEach(el=> el.setAttribute( 'fill', fill))
         document.querySelector('#bars-btn > svg').setAttribute('fill', fill)
     }
 
