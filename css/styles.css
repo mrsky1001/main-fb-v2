@@ -851,6 +851,22 @@ main {
 
 
 @media screen and (max-width: 800px) {
+    .theme-container{
+        justify-content: left;
+        padding: 0 0 0 10px;
+        top: 0;
+        position: absolute;
+    }
+
+    .theme-container .theme-btn svg{
+        width: 30px;
+        height: 30px;
+    }
+
+    .path{
+        fill: var(--color-text);
+    }
+
     .short-navbar {
         visibility: visible;
     }
@@ -924,6 +940,7 @@ main {
 
     .navbar {
         position: absolute;
+        height: 120%;
         /*height: 90%;*/
     }
 
@@ -933,6 +950,11 @@ main {
 
     .navbar .nav-item {
         padding: 10px 0;
+    }
+
+    .navbar .nav-item svg {
+        width: 40px;
+        height: 40px;
     }
 
 

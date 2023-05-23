@@ -39,6 +39,7 @@ document.getElementsByTagName('main')[0].addEventListener("scroll", (e) => {
 })
 const themes = {light: 0, dark: 1}
 const themeContainer = document.getElementById('themeContainer')
+const svgEl = themeContainer.getElementsByTagName("svg")[0]
 
 
 // function htmlToElement(html) {
@@ -63,7 +64,6 @@ function setTheme(theme) {
     const lightSVG = '<path fill-off="#fff" stroke-off="#fff" class="path"  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>'
     const darkSVG = '<path fill-off="#444" stroke-off="#444" class="path" d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>'
 
-    const svgEl = themeContainer.getElementsByTagName("svg")[0]
 
     if (Number(theme) === themes.dark) {
         const fill ='#fff'
@@ -79,6 +79,8 @@ function setTheme(theme) {
 
         document.documentElement.setAttribute('theme', 'dark');
         document.querySelector('.start-section .title span:last-child').classList.add('dark');
+        document.querySelectorAll('.logo .main svg .path').forEach(el=> el.setAttribute( 'fill', fill))
+        document.querySelector('#bars-btn > svg').setAttribute('fill', fill)
     } else {
         const fill ='#333'
         const fillBtn =' rgba(51, 51, 51, 0.5)'
@@ -97,13 +99,15 @@ function setTheme(theme) {
 
         document.documentElement.removeAttribute('theme');
         document.querySelector('.start-section .title span:last-child').classList.remove('dark');
+        document.querySelectorAll('.logo .main svg .path').forEach(el=> el.setAttribute( 'fill', fill))
+        document.querySelector('#bars-btn > svg').setAttribute('fill', fill)
     }
 
 }
 
 setTheme(localStorage.getItem('__foma-blog_theme') ?? themes.light)
 
-themeContainer.onclick = () => {
+svgEl.onclick = () => {
     const currentTheme = localStorage.getItem('__foma-blog_theme') ?? themes.light
 
     const newTheme = Number(currentTheme) === themes.light ? themes.dark : themes.light
